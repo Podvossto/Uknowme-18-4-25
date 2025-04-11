@@ -94,11 +94,11 @@ const DataBondTrade: React.FC = () => {
       let statusMatch = true;
       if (statusFilter !== 'all') {
         if (statusFilter === 'active') {
-          statusMatch = user.bond_status.status === 'active';
+          statusMatch = user.bond_status.status === 'active' && !isExpired(user.bond_status.end_date);
         } else if (statusFilter === 'inactive') {
           statusMatch = user.bond_status.status === 'inactive';
         } else if (statusFilter === 'deactive') {
-          statusMatch = user.bond_status.status === 'active' && isExpired(user.bond_status.end_date);
+          statusMatch = user.bond_status.status === 'deactive';
         }
       }
       
@@ -164,7 +164,7 @@ const DataBondTrade: React.FC = () => {
                 className={`px-4 py-2 rounded-[20px] transition-colors duration-200 ease-in-out ${statusFilter === 'deactive' ? 'bg-yellow-500 text-white' : 'bg-gray-500 text-white hover:bg-gray-300'}`}
                 onClick={() => handleStatusFilter('deactive')}
               >
-                หมดอายุ
+                Deactive
               </button>
               <button
                 id="all-filter"
@@ -204,7 +204,7 @@ const DataBondTrade: React.FC = () => {
                             : 'bg-green-100 text-green-800' 
                           : 'bg-red-100 text-red-800'
                       }`}>
-                        {user.bond_status.status === 'active' && expired ? 'หมดอายุ' : user.bond_status.status}
+                        {user.bond_status.status === 'active' && expired ? 'Deactive' : user.bond_status.status}
                       </span>
                     </td>
                     <td id={`user-date-${user._id}`} className="px-6 py-4">

@@ -26,11 +26,10 @@ app.use("/uploads",express.static(path.join(__dirname, '../src/uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Add middleware to handle errors
-app.use((err, req, res, next) => {
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
   res.status(500).json({
     message: "เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์",
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
-

@@ -12,8 +12,54 @@ router.post("/signup", signup);
 router.get("/validate-token", validateToken);
 router.post("/refresh-token", refreshToken);
 
-
-export default router;
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     LoginResponse:
+ *       type: object
+ *       properties:
+ *         token:
+ *           type: string
+ *           description: JWT access token
+ *         refreshToken:
+ *           type: string
+ *           description: Token for refreshing access token
+ *         user:
+ *           type: object
+ *           properties:
+ *             id:
+ *               type: string
+ *             name:
+ *               type: string
+ *             email:
+ *               type: string
+ *             role:
+ *               type: string
+ *             status:
+ *               type: string
+ *   responses:
+ *     UnauthorizedError:
+ *       description: ไม่มีสิทธิ์เข้าถึง
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
+ *                 example: "Unauthorized access"
+ *     ServerError:
+ *       description: เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
+ *                 example: "Internal server error"
+ */
 
 /**
  * @swagger
@@ -24,7 +70,7 @@ export default router;
 
 /**
  * @swagger
- * /api/login:
+ * /login:
  *   post:
  *     summary: เข้าสู่ระบบสำหรับผู้ใช้หรือผู้ดูแลระบบ
  *     tags: [Auth]
@@ -34,14 +80,20 @@ export default router;
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *               - role
  *             properties:
  *               email:
  *                 type: string
+ *                 format: email
  *                 example: user@example.com
  *                 description: อีเมลผู้ใช้
  *               password:
  *                 type: string
- *                 example: รหัสผ่าน123
+ *                 format: password
+ *                 example: "YourPassword123!"
  *                 description: รหัสผ่าน
  *               role:
  *                 type: string
@@ -55,17 +107,58 @@ export default router;
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/LoginResponse'
+ *             example:
+ *               token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *               refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *               user:
+ *                 id: "123456789"
+ *                 name: "John Doe"
+ *                 email: "user@example.com"
+ *                 role: "user"
+ *                 status: "active"
  *       400:
- *         description: ไม่ได้ระบุอีเมลหรือรหัสผ่าน
+ *         description: ข้อมูลไม่ถูกต้อง
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *             examples:
+ *               missingFields:
+ *                 value:
+ *                   message: "กรุณากรอกอีเมลและรหัสผ่าน"
+ *               invalidEmail:
+ *                 value:
+ *                   message: "รูปแบบอีเมลไม่ถูกต้อง"
  *       401:
  *         description: อีเมลหรือรหัสผ่านไม่ถูกต้อง
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
  *       403:
  *         description: บัญชีถูกระงับการใช้งาน
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "บัญชีนี้ถูกระงับการใช้งาน"
+ *       500:
+ *         $ref: '#/components/responses/ServerError'
  */
 
 /**
  * @swagger
- * /api/signup:
+ * /signup:
  *   post:
  *     summary: ลงทะเบียนผู้ใช้ใหม่
  *     tags: [Auth]
@@ -75,27 +168,42 @@ export default router;
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - name
+ *               - company
+ *               - citizenId
+ *               - email
+ *               - phone
+ *               - password
  *             properties:
  *               name:
  *                 type: string
- *                 example: สมชาย ใจดี
+ *                 example: "สมชาย ใจดี"
  *                 description: ชื่อผู้ใช้
  *               company:
  *                 type: string
- *                 example: บริษัท ตัวอย่าง จำกัด
+ *                 example: "บริษัท ตัวอย่าง จำกัด"
  *                 description: ชื่อบริษัท
  *               citizenId:
  *                 type: string
- *                 example: 1234567890123
- *                 description: เลขบัตรประชาชน
+ *                 pattern: "^[0-9]{13}$"
+ *                 example: "1234567890123"
+ *                 description: เลขบัตรประชาชน 13 หลัก
  *               email:
  *                 type: string
- *                 example: user@example.com
+ *                 format: email
+ *                 example: "user@example.com"
  *                 description: อีเมล
  *               phone:
  *                 type: string
- *                 example: 0812345678
- *                 description: เบอร์โทรศัพท์
+ *                 pattern: "^[0-9]{10}$"
+ *                 example: "0812345678"
+ *                 description: เบอร์โทรศัพท์ 10 หลัก
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: "YourPassword123!"
+ *                 description: รหัสผ่าน
  *     responses:
  *       201:
  *         description: ลงทะเบียนผู้ใช้สำเร็จ
@@ -106,22 +214,39 @@ export default router;
  *               properties:
  *                 message:
  *                   type: string
- *                   description: ข้อความแจ้งสถานะ
+ *                   example: "ลงทะเบียนสำเร็จ"
  *                 userId:
  *                   type: string
- *                   description: ID ของผู้ใช้ที่ลงทะเบียน
+ *                   example: "123456789"
  *                 role:
  *                   type: string
- *                   description: บทบาทของผู้ใช้
+ *                   example: "user"
  *       400:
- *         description: อีเมลหรือเลขบัตรประชาชนซ้ำกับที่มีอยู่แล้ว
+ *         description: ข้อมูลไม่ถูกต้อง
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *             examples:
+ *               duplicateEmail:
+ *                 value:
+ *                   message: "อีเมลนี้ถูกใช้งานแล้ว"
+ *               duplicateCitizenId:
+ *                 value:
+ *                   message: "เลขบัตรประชาชนนี้ถูกใช้งานแล้ว"
+ *               invalidFormat:
+ *                 value:
+ *                   message: "ข้อมูลไม่ถูกต้อง กรุณาตรวจสอบรูปแบบข้อมูล"
  *       500:
- *         description: เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์
+ *         $ref: '#/components/responses/ServerError'
  */
 
 /**
  * @swagger
- * /api/validate-token:
+ * /validate-token:
  *   get:
  *     summary: ตรวจสอบความถูกต้องของโทเคน
  *     tags: [Auth]
@@ -137,19 +262,29 @@ export default router;
  *               properties:
  *                 valid:
  *                   type: boolean
- *                   description: สถานะความถูกต้องของโทเคน
+ *                   example: true
  *                 user:
  *                   type: object
- *                   description: ข้อมูลผู้ใช้
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *                     role:
+ *                       type: string
+ *                     status:
+ *                       type: string
  *       401:
- *         description: โทเคนไม่ถูกต้องหรือไม่มีโทเคน
+ *         $ref: '#/components/responses/UnauthorizedError'
  *       500:
- *         description: เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์
+ *         $ref: '#/components/responses/ServerError'
  */
 
 /**
  * @swagger
- * /api/refresh-token:
+ * /refresh-token:
  *   post:
  *     summary: ต่ออายุโทเคนที่หมดอายุ
  *     tags: [Auth]
@@ -159,11 +294,13 @@ export default router;
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - token
  *             properties:
  *               token:
  *                 type: string
- *                 example: refresh-token-string
  *                 description: refresh token ที่ได้รับตอนเข้าสู่ระบบ
+ *                 example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  *     responses:
  *       200:
  *         description: ต่ออายุโทเคนสำเร็จ
@@ -175,10 +312,29 @@ export default router;
  *                 token:
  *                   type: string
  *                   description: โทเคนใหม่
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  *       401:
  *         description: ต้องระบุ refresh token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "กรุณาระบุ refresh token"
  *       403:
- *         description: refresh token ไม่ถูกต้อง
+ *         description: refresh token ไม่ถูกต้องหรือหมดอายุ
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "refresh token ไม่ถูกต้องหรือหมดอายุ"
  *       500:
- *         description: เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์
+ *         $ref: '#/components/responses/ServerError'
  */
+
+export default router;
