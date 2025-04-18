@@ -11,7 +11,7 @@ setupSwagger(app);
 // Apply middlewares
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: ["http://localhost:5174", "http://localhost:3000", "http://localhost", "http://localhost:80"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
