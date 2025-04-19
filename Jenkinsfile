@@ -5,7 +5,7 @@ pipeline {
         GIT_REPO = 'https://github.com/Podvossto/Uknowme-18-4-25.git'
         GIT_BRANCH = 'main'
         PATH = "/usr/local/bin:${env.PATH}"
-        APP_PORT = '5173'
+        APP_PORT = '3000'
         ROBOT_REPORTS_DIR = 'robot-reports'
         VENV_PATH = 'robot-venv'
     }
