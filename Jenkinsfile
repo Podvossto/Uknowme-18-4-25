@@ -58,23 +58,6 @@ pipeline {
             }
         }
 
-        
-
-        stage('Wait for Services') {
-            steps {
-                bat '''
-                    timeout /t 10
-                    powershell -Command "Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 30"
-                '''
-            }
-        }
-
-        stage('Docker Compose Logs') {
-            steps {
-                bat 'docker-compose logs --tail=50'
-            }
-        }
-
         stage('Run Robot Tests') {
             steps {
                 bat """
