@@ -7,6 +7,11 @@ import { setupSwagger } from "./utils/swagger";
 export const app = express();
 setupSwagger(app);
 
+// Force UTF-8 for all responses
+app.use((req, res, next) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  next();
+});
 
 // Apply middlewares
 app.use(
