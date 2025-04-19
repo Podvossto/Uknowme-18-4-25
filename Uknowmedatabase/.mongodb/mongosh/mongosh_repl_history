@@ -1,0 +1,24 @@
+db.courses.find()
+show collections
+use Uknowmedatabase
+exit
+mongorestore --db Uknowmedatabase --collection courses C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\Uknowmedatabase\courses.bson
+db.courses.countDocuments()
+db.courses.find()
+db.users.find()
+show collections
+show collection
+db
+use Uknowmedatabase
+show dbs
+use uknowmedatabase
+db.admins.find()
+db.users.find()
+db.courses.countDocuments()
+db.courses.find()
+db.courses
+db.courses.find().pretty()
+show collections
+db.users.find().pretty()
+show collections
+use Uknowmedatabase

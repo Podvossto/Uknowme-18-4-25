@@ -42,6 +42,7 @@ services:
       - "27017:27017"
     volumes:
       - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/Uknowmedatabase:/data/db"
+      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/mongo-init:/docker-entrypoint-initdb.d"
     restart: unless-stopped
     networks:
       - uknowme-network
