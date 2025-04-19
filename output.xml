@@ -1,328 +1,1002 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T17:36:21.279273" rpa="false" schemaversion="5">
-<suite id="s1" name="PositiveBond" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\PositiveBond.robot">
-<kw name="Setup Bond Trader" type="SETUP">
-<kw name="Register Bond Trader">
+<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T18:10:10.393052" rpa="false" schemaversion="5">
+<suite id="s1" name="PositiveAdmin" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\PositiveAdmin.robot">
+<kw name="Setup Admin Account" type="SETUP">
+<kw name="Register Admin">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:21.539039" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<msg time="2025-04-19T18:10:10.701584" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T17:36:21.538514" elapsed="2.550508"/>
+<status status="PASS" start="2025-04-19T18:10:10.700584" elapsed="2.568318"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.089022" elapsed="0.000544"/>
+<status status="PASS" start="2025-04-19T18:10:13.269410" elapsed="0.000000"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.090128" elapsed="0.084017"/>
+<status status="PASS" start="2025-04-19T18:10:13.269410" elapsed="0.099715"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-19T18:10:13.369633" level="INFO">${timestamp} = 20250419_181013</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-19T18:10:13.369633" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-19T18:10:13.564553" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_registration_start_20250419_181013.png"&gt;&lt;img src="screenshots/admin_registration_start_20250419_181013.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-19T18:10:13.369633" elapsed="0.194920"/>
+</kw>
+<arg>admin_registration_start</arg>
+<status status="PASS" start="2025-04-19T18:10:13.369125" elapsed="0.196438"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-19T18:10:15.571665" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-19T18:10:13.565563" elapsed="2.006102"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=role-btn-trader</arg>
+<arg>id=header-logo-link</arg>
+<arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.174145" elapsed="0.026651"/>
+<status status="PASS" start="2025-04-19T18:10:15.571665" elapsed="0.019732"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.200796" level="INFO">Clicking element 'id=role-btn-trader'.</msg>
-<arg>id=role-btn-trader</arg>
+<msg time="2025-04-19T18:10:15.592913" level="INFO">Clicking element 'id=header-logo-link'.</msg>
+<arg>id=header-logo-link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.200796" elapsed="0.108607"/>
+<status status="PASS" start="2025-04-19T18:10:15.591397" elapsed="0.112258"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-19T18:10:16.706396" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-19T18:10:15.703655" elapsed="1.003117"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-19T18:10:30.794739" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C68FDC]
+	(No symbol) [0x00007FF6B6CAF51F]
+	(No symbol) [0x00007FF6B6CE6FB2]
+	(No symbol) [0x00007FF6B6CE19CC]
+	(No symbol) [0x00007FF6B6CE0AA9]
+	(No symbol) [0x00007FF6B6C35AB5]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	(No symbol) [0x00007FF6B6C34B28]
+	GetHandleVerifier [0x00007FF6B7260688+3925560]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
+<msg time="2025-04-19T18:10:30.794739" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-19T18:10:16.706772" elapsed="14.119158">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.826939" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.826939" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=signup-btn</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.309403" elapsed="0.026214"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.826939" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.336629" level="INFO">Clicking element 'id=signup-btn'.</msg>
 <arg>id=signup-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.335617" elapsed="0.089596"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.826939" elapsed="0.000000"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.426365" level="INFO">Typing text 'Bond Trader Test' into text field 'id=name-input'.</msg>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.828449" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=name-input</arg>
-<arg>${BOND_NAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.425213" elapsed="0.153958"/>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.828449" elapsed="0.000000"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.579171" level="INFO">Typing text 'Test Trading Co.' into text field 'id=company-input'.</msg>
-<arg>id=company-input</arg>
-<arg>${BOND_COMPANY}</arg>
+<arg>id=name-input</arg>
+<arg>${ADMIN_NAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.579171" elapsed="0.104855"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.828449" elapsed="0.001009"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.685540" level="INFO">Typing text '1234567890123' into text field 'id=citizen-id-input'.</msg>
-<arg>id=citizen-id-input</arg>
-<arg>${BOND_CITIZEN_ID}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.684026" elapsed="0.097973"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.782998" level="INFO">Typing text 'trader@uknowme.com' into text field 'id=email-input'.</msg>
 <arg>id=email-input</arg>
-<arg>${BOND_EMAIL}</arg>
+<arg>${ADMIN_EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.781999" elapsed="0.117323"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.829458" elapsed="0.000000"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<arg>id=password-input</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.829458" elapsed="0.000000"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:24.900334" level="INFO">Typing text '0899999998' into text field 'id=phone-input'.</msg>
 <arg>id=phone-input</arg>
-<arg>${BOND_PHONE}</arg>
+<arg>0899999999</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:24.899322" elapsed="0.109748"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:25.009070" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T17:36:25.060405" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>${BOND_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.009070" elapsed="0.113481"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.829458" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=submit-signup-btn</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.122551" elapsed="0.015565"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.829458" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:25.138689" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
 <arg>id=submit-signup-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.138689" elapsed="0.077459"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.830464" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
+<arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.216148" elapsed="0.261363"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:25.505948" level="INFO">Element 'xpath=//h2[contains(@class, 'swal2-title')]' contains text 'สมัครสมาชิกสำเร็จ'.</msg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>สมัครสมาชิกสำเร็จ</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.478514" elapsed="0.027434"/>
-</kw>
-<msg time="2025-04-19T17:36:25.505948" level="INFO">${status} = True</msg>
-<var>${status}</var>
-<arg>Element Should Contain</arg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>สมัครสมาชิกสำเร็จ</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.477511" elapsed="0.028437"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:25.507950" level="INFO">Clicking element 'xpath=//button[contains(@class, 'swal2-confirm')]'.</msg>
-<arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.506947" elapsed="0.122986"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T17:36:25.629933" elapsed="2.158720"/>
-</kw>
-<status status="PASS" start="2025-04-19T17:36:21.537989" elapsed="6.251173"/>
-</kw>
-<kw name="LogIn">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:27.790175" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T17:36:27.790175" elapsed="2.126953"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T17:36:29.917128" elapsed="0.000818"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T17:36:29.917946" elapsed="0.079793"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T17:36:29.998768" level="INFO">${timestamp} = 20250419_173629</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T17:36:29.997739" elapsed="0.001029"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.177473" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_173629.png"&gt;&lt;img src="screenshots/user_login_start_20250419_173629.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T17:36:29.998768" elapsed="0.178705"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T17:36:29.997739" elapsed="0.180718"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.178457" elapsed="0.021705"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.200669" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.200162" elapsed="0.086342"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T17:36:30.287504" level="INFO">${timestamp} = 20250419_173630</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.287504" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.529503" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_173630.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_173630.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.287504" elapsed="0.241999"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T17:36:30.286504" elapsed="0.242999"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=email-input</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.530018" elapsed="0.019256"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.549274" level="INFO">Typing text 'trader@uknowme.com' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>${BOND_EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.549274" elapsed="0.096001"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.646692" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T17:36:30.677236" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>${BOND_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.645275" elapsed="0.102449"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T17:36:30.748724" level="INFO">${timestamp} = 20250419_173630</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.748724" elapsed="0.001003"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.846887" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_173630.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_173630.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.749727" elapsed="0.097670"/>
-</kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T17:36:30.747724" elapsed="0.099673"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:30.847397" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
-<arg>id=login-submit-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.847397" elapsed="0.062642"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T17:36:30.910039" elapsed="0.248940"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T17:36:31.266684" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T17:36:31.267242" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</msg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>เข้าสู่ระบบสำเร็จ!</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T17:36:31.158979" elapsed="0.110414">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<status status="NOT RUN" start="2025-04-19T18:10:30.830464" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T17:36:31.270901" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-04-19T18:10:30.830464" elapsed="0.000000"/>
 </kw>
-<kw name="Capture Step Screenshot">
-<arg>user_login_success</arg>
-<status status="NOT RUN" start="2025-04-19T17:36:31.270901" elapsed="0.000000"/>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Wait Until Element Is Visible</arg>
+<arg>id=header-logo-link</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.831460" elapsed="0.000000"/>
 </kw>
-<kw name="Homepage">
-<status status="NOT RUN" start="2025-04-19T17:36:31.270901" elapsed="0.000000"/>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Click Element</arg>
+<arg>id=header-logo-link</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.831460" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-04-19T17:36:27.789162" elapsed="3.482747">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-04-19T18:10:30.831460" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-04-19T17:36:21.537989" elapsed="9.733920">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<status status="FAIL" start="2025-04-19T18:10:10.699585" elapsed="20.131875">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </kw>
-<test id="s1-t1" name="TCI001-การสมัครสมาชิก" line="115">
-<status status="FAIL" start="2025-04-19T17:36:31.271909" elapsed="0.000999">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<kw name="Login Admin">
+<status status="NOT RUN" start="2025-04-19T18:10:30.832845" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-19T18:10:10.699585" elapsed="20.133260">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</kw>
+<test id="s1-t1" name="TCI002-ดูหน้าแดชบอร์ด" line="114">
+<status status="FAIL" start="2025-04-19T18:10:30.832845" elapsed="0.001512">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t2" name="TCI003-โปรไฟล์" line="119">
-<status status="FAIL" start="2025-04-19T17:36:31.276507" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t2" name="TCI003-ดูข้อมูลส่วนตัวบัญชีผู้ดูแล" line="119">
+<status status="FAIL" start="2025-04-19T18:10:30.835378" elapsed="0.002513">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t3" name="TCI004-แก้ไขข้อมูลโปรไฟล์" line="125">
-<status status="FAIL" start="2025-04-19T17:36:31.278518" elapsed="0.000998">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t3" name="TCI004-แก้ไขข้อมูลส่วนตัวของผู้ดูแลระบบ" line="125">
+<status status="FAIL" start="2025-04-19T18:10:30.838899" elapsed="0.002410">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t4" name="TCI005-เปลี่ยนรหัสผ่าน" line="142">
-<status status="FAIL" start="2025-04-19T17:36:31.280513" elapsed="0.001010">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t4" name="TCI005-ดูจำนวนผู้ค้าที่ได้รับสถานะ" line="136">
+<status status="FAIL" start="2025-04-19T18:10:30.842916" elapsed="0.001530">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t5" name="TCI006-หลักสูตรของฉัน" line="160">
-<status status="FAIL" start="2025-04-19T17:36:31.282531" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t5" name="TCI006-ดูจำนวนผู้ค้าที่ยังไม่ได้รับสถานะ" line="146">
+<status status="FAIL" start="2025-04-19T18:10:30.845811" elapsed="0.001011">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t6" name="TCI007-ลงทะเบียนคอร์ส" line="172">
-<status status="FAIL" start="2025-04-19T17:36:31.284042" elapsed="0.001529">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t6" name="TCI007-ดูจำนวนผู้ค้าที่หมดอายุ" line="151">
+<status status="FAIL" start="2025-04-19T18:10:30.849300" elapsed="0.002010">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t7" name="TCI-008-เริ่มเรียน" line="184">
-<status status="FAIL" start="2025-04-19T17:36:31.286581" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t7" name="TCI008-ค้นหารายชื่อผู้ค้าตราสารหนี้ที่หน้าแดชบอร์ด" line="156">
+<status status="FAIL" start="2025-04-19T18:10:30.853822" elapsed="0.002712">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t8" name="TCI_009-ยกเลิกการลงทะเบียน" line="192">
-<status status="FAIL" start="2025-04-19T17:36:31.288090" elapsed="0.001009">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t8" name="TCI009-ดูรายละเอียดข้อมูลของผู้ค้าตราสารหนี้" line="162">
+<status status="FAIL" start="2025-04-19T18:10:30.859564" elapsed="0.002281">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t9" name="TCI010-ตารางอบรม" line="206">
-<status status="FAIL" start="2025-04-19T17:36:31.290275" elapsed="0.000600">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t9" name="TCI010-ดูหน้าผู้ค้าตราสารหนี้" line="170">
+<status status="FAIL" start="2025-04-19T18:10:30.862351" elapsed="0.002006">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t10" name="TCI011-ดาว์นโหลดใบรับรอง" line="210">
-<status status="FAIL" start="2025-04-19T17:36:31.291887" elapsed="0.000998">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t10" name="TCI011-แก้ไขสถานะของผู้ค้าตราสารหนี้" line="176">
+<status status="FAIL" start="2025-04-19T18:10:30.866882" elapsed="0.001212">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
-<test id="s1-t11" name="TCI012-ออกจากระบบ" line="226">
-<status status="FAIL" start="2025-04-19T17:36:31.292885" elapsed="0.001546">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<test id="s1-t11" name="TCI012-ดูหน้าจัดการคอร์ส" line="194">
+<status status="FAIL" start="2025-04-19T18:10:30.869104" elapsed="0.001455">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t12" name="TCI013-เพิ่มคอร์ส" line="199">
+<status status="FAIL" start="2025-04-19T18:10:30.871991" elapsed="0.002519">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t13" name="TCI014-ดูตัวกรองการจัดการคอร์ส" line="231">
+<status status="FAIL" start="2025-04-19T18:10:30.876039" elapsed="0.001010">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t14" name="TCI015-ดูคอร์สที่เพิ่มมาล่าสุด" line="241">
+<status status="FAIL" start="2025-04-19T18:10:30.878050" elapsed="0.001954">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t15" name="TCI016-ดูคอร์สที่ยอดนิยม" line="245">
+<status status="FAIL" start="2025-04-19T18:10:30.881011" elapsed="0.001757">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t16" name="TCI017-ดูคอร์สที่กำลังจะเริ่มต้นการสอน" line="250">
+<status status="FAIL" start="2025-04-19T18:10:30.884281" elapsed="0.002558">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t17" name="TCI018-ลบคอร์ส" line="256">
+<status status="FAIL" start="2025-04-19T18:10:30.888053" elapsed="0.001519">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t18" name="TCI019-ค้นหาคอร์ส" line="281">
+<status status="FAIL" start="2025-04-19T18:10:30.890582" elapsed="0.001250">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t19" name="TCI020-ดูหน้าตารางอบรม" line="287">
+<status status="FAIL" start="2025-04-19T18:10:30.892840" elapsed="0.001525">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t20" name="TCI021-ค้นหาหลักเพื่อดูตารางอบรม" line="293">
+<status status="FAIL" start="2025-04-19T18:10:30.895375" elapsed="0.001948">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t21" name="TCI022-ดูรายชื่อผู้สมัครของคอร์ส" line="300">
+<status status="FAIL" start="2025-04-19T18:10:30.899583" elapsed="0.001508">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t22" name="TCI023-เช็คชื่อตรวจสอบการเข้าอบรม" line="316">
+<status status="FAIL" start="2025-04-19T18:10:30.903321" elapsed="0.002021">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<test id="s1-t23" name="TCI024-ออกจากระบบ" line="337">
+<status status="FAIL" start="2025-04-19T18:10:30.906343" elapsed="0.001509">Parent suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-04-19T18:10:33.949299" level="ERROR">When closing browser, received exception: Execution terminated by signal</msg>
+<msg time="2025-04-19T18:10:33.949299" level="INFO">Cannot capture screenshot because no browser is open.</msg>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T17:36:31.295439" elapsed="2.130754"/>
+<status status="FAIL" start="2025-04-19T18:10:30.910677" elapsed="3.038622">Execution terminated by signal</status>
 </kw>
-<status status="FAIL" start="2025-04-19T17:36:21.280257" elapsed="12.145936">Suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<status status="FAIL" start="2025-04-19T18:10:10.396579" elapsed="23.554172">Suite setup failed:
+InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C691AA]
+	(No symbol) [0x00007FF6B6C54EF5]
+	(No symbol) [0x00007FF6B6C79F04]
+	(No symbol) [0x00007FF6B6CEED0F]
+	(No symbol) [0x00007FF6B6D0EBB2]
+	(No symbol) [0x00007FF6B6CE6EC3]
+	(No symbol) [0x00007FF6B6CB03F8]
+	(No symbol) [0x00007FF6B6CB1163]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	GetHandleVerifier [0x00007FF6B6EBD2D4+111236]
+	GetHandleVerifier [0x00007FF6B6EBD482+111666]
+	GetHandleVerifier [0x00007FF6B6EA35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+
+
+Also suite teardown failed:
+Execution terminated by signal</status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="11" skip="0">All Tests</stat>
+<stat pass="0" fail="23" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="PositiveBond" id="s1" pass="0" fail="11" skip="0">PositiveBond</stat>
+<stat name="PositiveAdmin" id="s1" pass="0" fail="23" skip="0">PositiveAdmin</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-04-19T18:10:30.794739" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B6EB5355+78597]
+	GetHandleVerifier [0x00007FF6B6EB53B0+78688]
+	(No symbol) [0x00007FF6B6C68FDC]
+	(No symbol) [0x00007FF6B6CAF51F]
+	(No symbol) [0x00007FF6B6CE6FB2]
+	(No symbol) [0x00007FF6B6CE19CC]
+	(No symbol) [0x00007FF6B6CE0AA9]
+	(No symbol) [0x00007FF6B6C35AB5]
+	GetHandleVerifier [0x00007FF6B715EF0D+2870973]
+	GetHandleVerifier [0x00007FF6B71596B8+2848360]
+	GetHandleVerifier [0x00007FF6B7176993+2967875]
+	GetHandleVerifier [0x00007FF6B6ED019A+188746]
+	GetHandleVerifier [0x00007FF6B6ED847F+222255]
+	(No symbol) [0x00007FF6B6C34B28]
+	GetHandleVerifier [0x00007FF6B7260688+3925560]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
+<msg time="2025-04-19T18:10:33.949299" level="ERROR">When closing browser, received exception: Execution terminated by signal</msg>
 </errors>
 </robot>
