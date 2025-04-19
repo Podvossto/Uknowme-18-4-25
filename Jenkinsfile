@@ -2,12 +2,10 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_IMAGE = 'clients'
-        DOCKER_TAG = 'latest'
         GIT_REPO = 'https://github.com/Podvossto/Uknowme-18-4-25.git'
         GIT_BRANCH = 'main'
         PATH = "/usr/local/bin:${env.PATH}"
-        APP_PORT = '5001'
+        APP_PORT = '5000'
         ROBOT_REPORTS_DIR = 'robot-reports'
         VENV_PATH = 'robot-venv'
     }
@@ -31,55 +29,46 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Prepare Test Environment') {
             steps {
                 bat '''
-                    npm install
                     python -m venv %VENV_PATH%
                     call %VENV_PATH%\Scripts\activate
-                    python -m pip install robotframework robotframework-seleniumlibrary
+                    pip install --upgrade pip
+                    pip install robotframework robotframework-seleniumlibrary
                 '''
             }
         }
 
-        stage('Build') {
+        
+
+        stage('Docker Compose Deploy') {
             steps {
-                bat 'npm run build'
+                bat '''
+                    docker-compose down
+                    docker-compose build
+                    docker-compose up -d
+                '''
             }
         }
 
-        stage('Docker Compose Build') {
-            steps {
-                script {
-                    bat '''
-                        docker-compose down
-                        docker-compose build
-                    '''
-                }
-            }
-        }
+        
 
-        stage('Deploy Container') {
+        stage('Wait for Services') {
             steps {
-                script {
-                    bat '''
-                        docker-compose up -d
-                        echo แอปพลิเคชันกำลังทำงานด้วย docker-compose
-                        echo คุณสามารถเข้าถึงได้ที่ http://localhost:%APP_PORT%
-                    '''
-                }
+                bat '''
+                    timeout /t 30
+                '''
             }
         }
 
         stage('Run Robot Tests') {
             steps {
-                script {
-                    bat """
-                        call %VENV_PATH%\Scripts\activate
-                        if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
-                        python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
-                    """
-                }
+                bat """
+                    call %VENV_PATH%\Scripts\activate
+                    if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
+                    if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
+                """
             }
         }
     }
