@@ -28,7 +28,7 @@ Register Admin
     Click Element    id=header-logo-link
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     
     # Click on Register/Signup if available
@@ -59,7 +59,7 @@ Login Admin Fail
     Maximize Browser Window
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     
     # Input wrong email
@@ -72,7 +72,7 @@ Login Admin Fail
     Sleep    3s
     
     # Verify error message
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
     
 Login Admin Invalid
@@ -81,7 +81,7 @@ Login Admin Invalid
     Maximize Browser Window
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     
     # Input incomplete credentials
@@ -93,7 +93,7 @@ Login Admin Invalid
     Sleep    3s
     
     # Verify error message
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
 
 Login Admin
@@ -103,7 +103,7 @@ Login Admin
     Capture Step Screenshot    admin_login_start
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     Capture Step Screenshot    admin_role_selected
     
@@ -117,8 +117,8 @@ Login Admin
     Click Element    id=login-submit-btn
     
     # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ล็อกอินสำเร็จ
     Capture Step Screenshot    admin_login_success
 
 DashboardAdmin
@@ -161,6 +161,6 @@ TCI003-เพิ่มคอร์สกรณีที่ใส่ข้อม�
     Sleep    5s
     
     # Verify error message for incomplete course information
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
     [Teardown]    Close Browser

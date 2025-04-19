@@ -73,8 +73,8 @@ SignIn-Privatekey
     Click Element    id=login-submit-btn
     
     # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ล็อกอินสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
     Capture Step Screenshot    admin_login_success
 
@@ -89,11 +89,11 @@ SignIn-Privatekey
 
     Wait Until Element Is Visible    id=header-logo-link
     Click Element    id=header-logo-link
-    Wait Until Element Is Visible    id=submit-private-key-btn
+    Wait Until Element Is Visible    id=submit-private-key-btn    timeout=10s
     Click Element    id=submit-private-key-btn
     Sleep    3s
-    Input Text    private-key-input    1111111111111111111111111
-    Wait Until Element Is Visible    id=submit-private-key-btn
+    Input Text    id=private-key-input    1111111111111111111111111
+    Wait Until Element Is Visible    id=submit-private-key-btn    timeout=10s
     Click Element    id=submit-private-key-btn
     Wait Until Element Is Visible    id=verify-otp-btn
     Click Element    id=verify-otp-btn

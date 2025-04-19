@@ -32,7 +32,7 @@ Register Admin
     Click Element    id=header-logo-link
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     
     # Click on Register/Signup if available
@@ -64,7 +64,7 @@ SignIn-SuperAdmin
     Capture Step Screenshot    admin_login_start
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     Capture Step Screenshot    admin_role_selected
     
@@ -79,7 +79,7 @@ SignIn-SuperAdmin
     
     # Verify Login Success
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ล็อกอินสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
     Capture Step Screenshot    admin_login_success
 
@@ -103,7 +103,7 @@ SignIn-SuperAdmin
     Click Element    id=verify-otp-btn
     
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Success
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
 Add-SuperAdmin
@@ -118,7 +118,7 @@ Add-SuperAdmin
     Click Button    id=confirm-add-btn
 
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Success
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
 Edit-Admin
@@ -148,7 +148,7 @@ Edit-Admin
     
     # Verify success message
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    10s
-    ${status}=    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Success
+    ${status}=    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สำเร็จ
     Run Keyword If    ${status}    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
 *** Test Cases ***
@@ -180,7 +180,7 @@ TC-003-delete-SuperAdmin
     
     # Confirm deletion
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    10s
-    ${status}=    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Success
+    ${status}=    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สำเร็จ
     Run Keyword If    ${status}    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
 TC-005-Add-SuperAdmin

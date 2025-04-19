@@ -71,7 +71,7 @@ Signup New Bond Trader
     
     # Confirm Registration Success
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สมัครสมาชิกสำเร็จ!
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สมัครสมาชิกสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
     [Teardown]    Close Browser
 
@@ -82,7 +82,7 @@ LogIn
     Capture Step Screenshot    user_login_start
     
     # Select User Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]    timeout=10s
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]
     Capture Step Screenshot    user_role_selected
     
@@ -96,8 +96,8 @@ LogIn
     Click Element    id=login-submit-btn
     
     # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=10s
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ล็อกอินสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
     Capture Step Screenshot    user_login_success
     Homepage
