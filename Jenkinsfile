@@ -24,7 +24,7 @@ pipeline {
 
         stage('Check Node') {
             steps {
-                sh '''
+                bat '''
                     node -v
                     npm -v
                 '''
@@ -33,25 +33,25 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh '''
+                bat '''
                     npm install
-                    python3 -m venv ${VENV_PATH}
-                    source ${VENV_PATH}/bin/activate
-                    python3 -m pip install robotframework robotframework-seleniumlibrary
+                    python -m venv %VENV_PATH%
+                    call %VENV_PATH%\Scripts\activate
+                    python -m pip install robotframework robotframework-seleniumlibrary
                 '''
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Docker Compose Build') {
             steps {
                 script {
-                    sh '''
+                    bat '''
                         docker-compose down
                         docker-compose build
                     '''
@@ -62,10 +62,10 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 script {
-                    sh '''
+                    bat '''
                         docker-compose up -d
-                        echo "แอปพลิเคชันกำลังทำงานด้วย docker-compose"
-                        echo "คุณสามารถเข้าถึงได้ที่ http://localhost:${APP_PORT}"
+                        echo แอปพลิเคชันกำลังทำงานด้วย docker-compose
+                        echo คุณสามารถเข้าถึงได้ที่ http://localhost:%APP_PORT%
                     '''
                 }
             }
@@ -74,10 +74,10 @@ pipeline {
         stage('Run Robot Tests') {
             steps {
                 script {
-                    sh """
-                        source ${VENV_PATH}/bin/activate
-                        mkdir -p ${ROBOT_REPORTS_DIR}
-                        python3 -m robot --outputdir ${ROBOT_REPORTS_DIR} TestCase.robot
+                    bat """
+                        call %VENV_PATH%\Scripts\activate
+                        if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
+                        python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
                     """
                 }
             }
