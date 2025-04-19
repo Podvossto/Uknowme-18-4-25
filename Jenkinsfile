@@ -29,48 +29,48 @@ pipeline {
             }
         }
 
-        stage('Prepare Test Environment') {
-            steps {
-                bat '''
-                    python -m venv %VENV_PATH%
-                    call %VENV_PATH%\Scripts\activate
-                    pip install --upgrade pip
-                    pip install robotframework robotframework-seleniumlibrary
-                '''
-            }
-        }
+        // stage('Prepare Test Environment') {
+        //     steps {
+        //         bat '''
+        //             python -m venv %VENV_PATH%
+        //             call %VENV_PATH%\Scripts\activate
+        //             pip install --upgrade pip
+        //             pip install robotframework robotframework-seleniumlibrary
+        //         '''
+        //     }
+        // }
 
         
 
-        stage('Docker Compose Deploy') {
-            steps {
-                bat '''
-                    docker-compose down
-                    docker-compose build
-                    docker-compose up -d
-                '''
-            }
-        }
+        // stage('Docker Compose Deploy') {
+        //     steps {
+        //         bat '''
+        //             docker-compose down
+        //             docker-compose build
+        //             docker-compose up -d
+        //         '''
+        //     }
+        // }
 
         
 
-        stage('Wait for Services') {
-            steps {
-                bat '''
-                    timeout /t 30
-                '''
-            }
-        }
+        // stage('Wait for Services') {
+        //     steps {
+        //         bat '''
+        //             timeout /t 30
+        //         '''
+        //     }
+        // }
 
-        stage('Run Robot Tests') {
-            steps {
-                bat """
-                    call %VENV_PATH%\Scripts\activate
-                    if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
-                    if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
-                """
-            }
-        }
+        // stage('Run Robot Tests') {
+        //     steps {
+        //         bat """
+        //             call %VENV_PATH%\Scripts\activate
+        //             if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
+        //             if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
+        //         """
+        //     }
+        // }
     }
 
     post {
