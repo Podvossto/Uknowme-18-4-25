@@ -35,7 +35,7 @@ pipeline {
                     python -m venv %VENV_PATH%
                     call %VENV_PATH%\\Scripts\\activate
                     pip install --upgrade pip
-                    pip install robotframework robotframework-seleniumlibrary
+                    pip install robotframework robotframework-seleniumlibrary pyotp
                 '''
             }
         }
