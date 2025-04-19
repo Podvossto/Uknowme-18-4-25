@@ -56,9 +56,7 @@ pipeline {
 
         stage('Wait for Services') {
             steps {
-                bat '''
-                    timeout /t 30
-                '''
+                bat 'powershell -Command "Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 30"'
             }
         }
 
