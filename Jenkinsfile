@@ -48,12 +48,29 @@ pipeline {
             }
         }
 
-        stage('Docker Compose Deploy') {
+        stage('Clean Up Containers') {
+            steps {
+                bat 'docker-compose down'
+            }
+        }
+
+        stage('Build Docker Images') {
+            steps {
+                bat 'docker-compose build'
+            }
+        }
+
+        stage('Deploy Containers') {
+            steps {
+                bat 'docker-compose up -d'
+            }
+        }
+
+        stage('Wait for Frontend') {
             steps {
                 bat '''
-                    docker-compose down
-                    docker-compose build
-                    docker-compose up -d
+                    timeout /t 10
+                    powershell -Command "Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 30"
                 '''
             }
         }
@@ -65,6 +82,12 @@ pipeline {
                     if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
                     if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
                 """
+            }
+        }
+
+        stage('Docker Compose Logs') {
+            steps {
+                bat 'docker-compose logs --tail=50'
             }
         }
     }
