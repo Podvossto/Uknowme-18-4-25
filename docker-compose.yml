@@ -41,7 +41,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
+      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/Uknowmedatabase:/data/db"
     restart: unless-stopped
     networks:
       - uknowme-network
