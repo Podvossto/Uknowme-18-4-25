@@ -29,16 +29,16 @@ pipeline {
             }
         }
 
-        // stage('Prepare Test Environment') {
-        //     steps {
-        //         bat '''
-        //             python -m venv %VENV_PATH%
-        //             call %VENV_PATH%\Scripts\activate
-        //             pip install --upgrade pip
-        //             pip install robotframework robotframework-seleniumlibrary
-        //         '''
-        //     }
-        // }
+        stage('Prepare Test Environment') {
+            steps {
+                bat '''
+                    python -m venv %VENV_PATH%
+                    call %VENV_PATH%\Scripts\activate
+                    pip install --upgrade pip
+                    pip install robotframework robotframework-seleniumlibrary
+                '''
+            }
+        }
 
         
 
