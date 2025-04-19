@@ -2,11 +2,12 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
-
+Suite Setup    LogIn
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://localhost:5173/
+${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
 *** Keywords ***
@@ -112,20 +113,20 @@ Profile
     Click Element    xpath=//*[@id="user-menu-btn"]
 
 Homepage
-    Go To    http://localhost:5173/UserHomepage
+    Go To    http://localhost/UserHomepage
     Sleep    3s 
 
 *** Test Cases ***
-TC001-SignupD
+TCI001-การสมัครสมาชิก(ข้อมูลไม่ครบ)
     SignupDuplicate
 
-TC002-SignupI
+TCI002-การสมัครสมาชิก(ข้อมูลซ้ำ)
     SignupIncomplete
 
-TC003-LogInI
+TCI003-เข้าสู่ระบบของผูู้ค้าตราสารหนี้
     LogInI
 
-TC004-upload-profile
+TCI004-แก้ไขข้อมูลโปรไฟล์
     LogIn
     Homepage
     Profile
@@ -145,11 +146,11 @@ TC004-upload-profile
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Update Failed
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    [Teardown]    Close Browser
+    Wait Until Element Is Visible    id=close-profile-btn
+    Click Button     id=close-profile-btn
 
-TC005-Change-Password
-    LogIn
-    Homepage
+TCI005-เปลี่ยนรหัสผ่าน
+
     Profile
 
     Wait Until Element Is Visible    id=change-password-btn
@@ -163,18 +164,16 @@ TC005-Change-Password
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ผิดพลาด
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    [Teardown]    Close Browser
+    
 
-TC006-Course-Time
-    LogIn
-    Homepage
-    Profile
+TCI006-ลงทะเบียนคอร์ส(ที่นั่งเต็ม)
 
-    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c726c628150b54faeac2"]
-    Click Element    xpath=//*[@id="course-card-6709c726c628150b54faeac2"]
+    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
+    Click Element    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
     Wait Until Element Is Visible    id=register-course-btn
     Click Element    id=register-course-btn
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    [Teardown]    Close Browser
+   
+

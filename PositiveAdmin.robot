@@ -2,10 +2,12 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
+Suite Setup    Login Admin
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://localhost:5173/
+${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
 
@@ -41,7 +43,7 @@ Login Admin
     Capture Step Screenshot    admin_login_success
 
 DashboardAdmin
-    Go To    http://localhost:5173/AdminDashboard
+    Go To    http://localhost/AdminDashboard
     Sleep    3s
 
 Profile
@@ -52,26 +54,16 @@ Profile
     Click Element    id=profile-btn 
 
 *** Test Cases ***
-TCI001-Login Admin
-    Login Admin
-    [Teardown]    Close Browser
-
-TCI002-Dashboard Admin
-    Login Admin
+TCI002-ดูหน้าแดชบอร์ด
     DashboardAdmin
-    [Teardown]    Close Browser
+    
 
-TCI003-Profile Admin
-    Login Admin
-    DashboardAdmin
+TCI003-ดูข้อมูลส่วนตัวบัญชีผู้ดูแล
     Profile
-    [Teardown]    Close Browser
+    
 
-TCI004-Edir-Profile
-    Login Admin
-    DashboardAdmin
-    Profile
-
+TCI004-แก้ไขข้อมูลส่วนตัวของผู้ดูแลระบบ
+    
     Wait Until Element Is Visible    id=edit-btn
     Click Element    id=edit-btn
     Input Text    xpath=//*[@id="profile-fields"]/div[1]/input    อทิตยา ชัยศิริวัฒนาศัย
@@ -79,10 +71,9 @@ TCI004-Edir-Profile
 
     Wait Until Element Is Visible    id=save-btn
     Click Element    id=save-btn
-    [Teardown]    Close Browser
+    
 
-TCI005-Status-Active
-    Login Admin
+TCI005-ดูจำนวนผู้ค้าที่ได้รับสถานะ
     DashboardAdmin
 
     Wait Until Element Is Visible    id=view-all-btn-จำนวนผู้ค้าที่ได้รับสถานะ
@@ -90,60 +81,39 @@ TCI005-Status-Active
 
     Wait Until Element Is Visible    id=active-filter
     Click Element    id=active-filter
-    [Teardown]    Close Browser
+    
 
-TCI006-Status-InActive
-    Login Admin
-    DashboardAdmin
-
-    Wait Until Element Is Visible    id=view-all-btn-จำนวนผู้ค้าที่ยังไม่ได้รับสถานะ
-    Click Element    id=view-all-btn-จำนวนผู้ค้าที่ยังไม่ได้รับสถานะ
-
+TCI006-ดูจำนวนผู้ค้าที่ยังไม่ได้รับสถานะ
     Wait Until Element Is Visible    id=inactive-filter
     Click Element    id=inactive-filter
-    [Teardown]    Close Browser
+    
 
-TCI007-Status-All
-    Login Admin
+TCI007-ดูจำนวนผู้ค้าที่หมดอายุ
+    Wait Until Element Is Visible    id=deactive-filter
+    Click Element    id=deactive-filter
+    
+
+TCI008-ค้นหารายชื่อผู้ค้าตราสารหนี้ที่หน้าแดชบอร์ด
     DashboardAdmin
-
-    Wait Until Element Is Visible    id=view-all-btn-จำนวนผู้ค้าที่หมดอายุ
-    Click Element    id=view-all-btn-จำนวนผู้ค้าที่หมดอายุ
-    [Teardown]    Close Browser
-
-TCI008-Search-User
-    Login Admin
-    DashboardAdmin
-
     Wait Until Element Is Visible    id=search-input
     Input Text    id=search-input    Athitiya Chaisiriwatthanachai
-    Sleep    3s
-    [Teardown]    Close Browser
+    
 
-TCI009-Detall-User
-    Login Admin
-    DashboardAdmin
+TCI009-ดูรายละเอียดข้อมูลของผู้ค้าตราสารหนี้
 
-    Wait Until Element Is Visible    id=view-details-btn-670a2da745a3113da061b371
-    Click Element    id=view-details-btn-670a2da745a3113da061b371
-    Sleep    3s
-    [Teardown]    Close Browser
+    Wait Until Element Is Visible    id=view-details-btn-670a2fe245a3113da061f5e3
+    Click Element    id=view-details-btn-670a2fe245a3113da061f5e3
+    Wait Until Element Is Visible    id=close-profile-btn
+    Click Element    id=close-profile-btn
+    
 
-TCI010-Show-User
-    Login Admin
-    DashboardAdmin
+TCI010-ดูหน้าผู้ค้าตราสารหนี้
 
     Wait Until Element Is Visible    id=traders-link
     Click Element    id=traders-link
-    [Teardown]    Close Browser
+    
 
-TCI011-Edit-User
-    Login Admin
-    DashboardAdmin
-
-    #Go bond
-    Wait Until Element Is Visible    id=traders-link
-    Click Element    id=traders-link
+TCI011-แก้ไขสถานะของผู้ค้าตราสารหนี้
 
     #Active
     Wait Until Element Is Visible    id=edit-user-670a2da745a3113da061b371
@@ -159,30 +129,22 @@ TCI011-Edit-User
 
     Wait Until Element Is Visible    id=save-btn
     Click Element    id=save-btn
-    Sleep    5s
-    [Teardown]    Close Browser
+    
 
-TCI012-Course
-    Login Admin
+TCI012-ดูหน้าจัดการคอร์ส
     DashboardAdmin
-
     Wait Until Element Is Visible    id=courses-link
     Click Element    id=courses-link
 
-TCI013-Add-Course
-    Login Admin
-    DashboardAdmin
-
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
+TCI013-เพิ่มคอร์ส
 
     Wait Until Element Is Visible    id=add-course-btn
     Click Element    id=add-course-btn
 
-    Input Text    id=title-upload-popup    Financials
-    Input Text    id=description-upload-popup    Financials
-    Input Text    id=details-upload-popup    test
-    Input Text    id=trainingLocation-upload-popup    test
+    Input Text    id=title-upload-popup    Financi
+    Input Text    id=description-upload-popup    Financia
+    Input Text    id=details-upload-popup    test5
+    Input Text    id=trainingLocation-upload-popup    test5
     Input Text    id=duration_hours-upload-popup    1
     Input Text    id=max_seats-upload-popup    20
     Input Text    id=start_date-upload-popup    10102025
@@ -193,129 +155,85 @@ TCI013-Add-Course
     Wait Until Element Is Visible    id=upload-btn-upload-popup
     Click Element    id=upload-btn-upload-popup
 
-TCI014-Filter-Course
-    Login Admin
-    DashboardAdmin
+    Wait Until Element Is Visible    id=cancel-btn-upload-popup
+    Click Element    id=cancel-btn-upload-popup
 
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
+TCI014-ดูตัวกรองการจัดการคอร์ส
 
     Wait Until Element Is Visible    id=filter-toggle
     Click Element    id=filter-toggle
 
-    Wait Until Element Is Visible    id=duration-select
-    Click Element    xpath=//*[@id="duration-select"]/option[2]
+    Select From List By Index    id=duration-select    2
+    Select From List By Index    id=start-date-select    2
 
-    Wait Until Element Is Visible    id=start-date-select
-    Click Element    xpath=//*[@id="start-date-select"]/option[2]
-    Sleep    3s
-    [Teardown]    Close Browser
+    
 
-TCI015-Latest-Course
-    Login Admin
-    DashboardAdmin
-
+TCI015-ดูคอร์สที่เพิ่มมาล่าสุด
     Wait Until Element Is Visible    id=courses-link
     Click Element    id=courses-link
 
-    [Teardown]    Close Browser
-
-TCI016-Popular-Course
-    Login Admin
-    DashboardAdmin
-
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
+TCI016-ดูคอร์สที่ยอดนิยม
     Wait Until Element Is Visible    id=tab-popular
     Click Element    id=tab-popular
-    [Teardown]    Close Browser
+    
 
-TCI017-Upcoming-Course
-    Login Admin
-    DashboardAdmin
+TCI017-ดูคอร์สที่กำลังจะเริ่มต้นการสอน
 
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
     Wait Until Element Is Visible    id=tab-upcoming
     Click Element    id=tab-upcoming
-    [Teardown]    Close Browser
+    
 
-TCI018-Delete-Course
-    Login Admin
-    DashboardAdmin
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
+TCI018-ลบคอร์ส
 
-    Wait Until Element Is Visible    id=delete-btn-6709c39ac628150b54faeaa3
-    Click Element    id=delete-btn-6709c39ac628150b54faeaa3
+    Wait Until Element Is Visible    id=tab-latest
+    Click Element    id=tab-latest
+
+    Wait Until Element Is Visible    id=delete-btn-6709c5e9c628150b54faeabd
+    Click Element    id=delete-btn-6709c5e9c628150b54faeabd
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ยืนยันการลบคอร์ส
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    [Teardown]    Close Browser
+    
 
-TCI019-Search-Course
-    Login Admin
-    DashboardAdmin
-    Wait Until Element Is Visible    id=courses-link
-    Click Element    id=courses-link
+TCI019-ค้นหาคอร์ส
 
     Wait Until Element Is Visible    id=search-input
-    Input Text    id=search-input    Financial
-    Sleep    3s
-    [Teardown]    Close Browser
+    Input Text    id=search-input    Cost Accounting
+    
 
-TCI020-schedule
-    Login Admin
-    DashboardAdmin
+TCI020-ดูหน้าตารางอบรม
 
     Wait Until Element Is Visible    id=schedule-link
     Click Element    id=schedule-link
-    [Teardown]    Close Browser
+    
 
-TCI021-Search-schedule
-    Login Admin
-    DashboardAdmin
+TCI021-ค้นหาหลักเพื่อดูตารางอบรม
 
-    Wait Until Element Is Visible    id=schedule-link
-    Click Element    id=schedule-link
     Wait Until Element Is Visible    id=course-search
-    Input Text    id=course-search    Financial
-    Sleep    3s
-    [Teardown]    Close Browser
+    Input Text    id=course-search    เป็นหนี้แล้วจัดการยังไง
 
-TCI022-User-schedule
-    Login Admin
-    DashboardAdmin
+    
 
+TCI022-ดูรายชื่อผู้สมัครของคอร์ส
     Wait Until Element Is Visible    id=schedule-link
     Click Element    id=schedule-link
+    Wait Until Element Is Visible    id=view-participants-6709ccb3c628150b54faeae4
+    Click Element    id=view-participants-6709ccb3c628150b54faeae4
 
-    Wait Until Element Is Visible    id=view-participants-6709c570c628150b54faeab8
-    Click Element    id=view-participants-6709c570c628150b54faeab8
-    Sleep    3s
-    [Teardown]    Close Browser
+    
 
-TCI023-Check-User-schedule
-    Login Admin
-    DashboardAdmin
+TCI023-เช็คชื่อตรวจสอบการเข้าอบรม
 
-    Wait Until Element Is Visible    id=schedule-link
-    Click Element    id=schedule-link
-
-    Wait Until Element Is Visible    id=view-participants-6709c570c628150b54faeab8
-    Click Element    id=view-participants-6709c570c628150b54faeab8
-
-    Wait Until Element Is Visible    xpath=//*[@id="check-participant-670a2f1445a3113da061f5cd"]/i
-    Click Element    xpath=//*[@id="check-participant-670a2f1445a3113da061f5cd"]/i
+    Wait Until Element Is Visible    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
+    Click Element    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
     
     Wait Until Element Is Visible    id=save-participants
     Click Element    id=save-participants
-    Sleep    3s
-    [Teardown]    Close Browser
+ 
+    Wait Until Element Is Visible    id=close-check-name
+    Click Element    id=close-check-name
 
-TCI024-Logout
-    Login Admin
-    DashboardAdmin
+TCI024-ออกจากระบบ
 
     Wait Until Element Is Visible    id=user-menu-btn
     Click Element    id=user-menu-btn
@@ -323,4 +241,4 @@ TCI024-Logout
     Wait Until Element Is Visible    id=logout-btn
     Click Element    id=logout-btn
 
-    [Teardown]    Close Browser
+    

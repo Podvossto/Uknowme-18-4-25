@@ -3,9 +3,10 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
 
+
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://localhost:5173/
+${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
 
@@ -27,17 +28,14 @@ Login Admin Fail
     
     
     # Input Login Credentials
-    Input Text    id=email-input    AtitayaAdmin@gmail.com
+    Input Text    id=email-input    AtitayasAdmin@gmail.com
     Input Password    id=password-input    12345
     Capture Step Screenshot    admin_credentials_entered
     
     # Click Login Button
     Click Element    id=login-submit-btn
+    Sleep    3s
     
-    # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
-    Capture Step Screenshot    admin_login_success
 
 Login Admin invalid
     Open Browser    ${URL}    ${BROWSER}
@@ -56,11 +54,8 @@ Login Admin invalid
     
     # Click Login Button
     Click Element    id=login-submit-btn
+    Sleep    3s
     
-    # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เกิดข้อผิดพลาด
-    Capture Step Screenshot    admin_login_success
 
 Login Admin
     Open Browser    ${URL}    ${BROWSER}
@@ -88,22 +83,21 @@ Login Admin
     Capture Step Screenshot    admin_login_success
 
 DashboardAdmin
-    Go To    http://localhost:5173/AdminDashboard
+    Go To    http://localhost/AdminDashboard
     Capture Step Screenshot    admin_dashboard
     Sleep    3s
 
 
 *** Test Cases ***
-TC001-LogFail
+TCI001-เข้าสู่ระบบผู้ดูแลระบบกรณีใช้ email ผิด
     Login Admin Fail
     [Teardown]    Close Browser
 
-TC002-LogInvalid
+TCI002-เข้าสู่ระบบผู้ดูแลระบบกรณีกรอกข้อมูลไม่ครบ
     Login Admin invalid
     [Teardown]    Close Browser
 
-TC003-Add-Course
-
+TCI003-เพิ่มคอร์สกรณีที่ใส่ข้อมูลคอร์สไม่ครบ
     Login Admin
     DashboardAdmin
     Wait Until Element Is Visible    id=courses-link

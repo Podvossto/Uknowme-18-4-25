@@ -1,787 +1,358 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T15:22:06.151480" rpa="false" schemaversion="5">
-<suite id="s1" name="TestCase" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\TestCase.robot">
-<test id="s1-t1" name="Login As User" line="20">
+<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T15:39:30.782180" rpa="false" schemaversion="5">
+<suite id="s1" name="NegativeAdmin" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\NegativeAdmin.robot">
+<test id="s1-t1" name="TCI001-เข้าสู่ระบบผู้ดูแลระบบกรณีใช้ email ผิด" line="92">
+<kw name="Login Admin Fail">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:06.569686" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<msg time="2025-04-19T15:39:31.008860" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T15:22:06.569686" elapsed="3.030972"/>
+<status status="PASS" start="2025-04-19T15:39:31.008322" elapsed="2.482085"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T15:22:09.601657" elapsed="0.000000"/>
+<status status="PASS" start="2025-04-19T15:39:33.490407" elapsed="0.000000"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T15:22:09.601657" elapsed="0.112368"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:09.716030" level="INFO">${timestamp} = 20250419_152209</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:09.715024" elapsed="0.001006"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:09.968997" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_152209.png"&gt;&lt;img src="screenshots/user_login_start_20250419_152209.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:09.716030" elapsed="0.252967"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T15:22:09.715024" elapsed="0.253973"/>
+<status status="PASS" start="2025-04-19T15:39:33.491402" elapsed="0.091290"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:09.970196" elapsed="0.089649"/>
+<status status="PASS" start="2025-04-19T15:39:33.582692" elapsed="0.024772"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.061462" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<msg time="2025-04-19T15:39:33.608471" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]'.</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.060849" elapsed="0.142260"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:10.206117" level="INFO">${timestamp} = 20250419_152210</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.206117" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.446449" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_152210.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_152210.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.206117" elapsed="0.240332"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T15:22:10.205125" elapsed="0.241324"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=email-input</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.446449" elapsed="0.026104"/>
+<status status="PASS" start="2025-04-19T15:39:33.608471" elapsed="0.096253"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.473555" level="INFO">Typing text 'phattarapong.phe@spumail.net' into text field 'id=email-input'.</msg>
+<msg time="2025-04-19T15:39:33.704724" level="INFO">Typing text 'AtitayasAdmin@gmail.com' into text field 'id=email-input'.</msg>
 <arg>id=email-input</arg>
-<arg>phattarapong.phe@spumail.net</arg>
+<arg>AtitayasAdmin@gmail.com</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.473555" elapsed="0.170339"/>
+<status status="PASS" start="2025-04-19T15:39:33.704724" elapsed="0.120637"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.644893" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T15:22:10.718086" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2025-04-19T15:39:33.825361" level="INFO">Typing password into text field 'id=password-input'.</msg>
+<msg time="2025-04-19T15:39:33.855665" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>id=password-input</arg>
-<arg>1329900959999</arg>
+<arg>12345</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.643894" elapsed="0.138769"/>
+<status status="PASS" start="2025-04-19T15:39:33.825361" elapsed="0.076648"/>
 </kw>
 <kw name="Capture Step Screenshot">
 <kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:10.785182" level="INFO">${timestamp} = 20250419_152210</msg>
+<msg time="2025-04-19T15:39:33.903016" level="INFO">${timestamp} = 20250419_153933</msg>
 <var>${timestamp}</var>
 <arg>result_format=%Y%m%d_%H%M%S</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.784173" elapsed="0.001009"/>
+<status status="PASS" start="2025-04-19T15:39:33.903016" elapsed="0.001035"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.878038" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_152210.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_152210.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-19T15:39:33.991765" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_credentials_entered_20250419_153933.png"&gt;&lt;img src="screenshots/admin_credentials_entered_20250419_153933.png" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.785182" elapsed="0.092856"/>
+<status status="PASS" start="2025-04-19T15:39:33.904051" elapsed="0.088711"/>
 </kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T15:22:10.784173" elapsed="0.093865"/>
+<arg>admin_credentials_entered</arg>
+<status status="PASS" start="2025-04-19T15:39:33.903016" elapsed="0.089746"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:10.879047" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
+<msg time="2025-04-19T15:39:33.992762" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
 <arg>id=login-submit-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.879047" elapsed="0.072549"/>
+<status status="PASS" start="2025-04-19T15:39:33.992762" elapsed="0.058732"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-19T15:39:37.065141" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-19T15:39:34.053002" elapsed="3.012139"/>
+</kw>
+<status status="PASS" start="2025-04-19T15:39:30.998699" elapsed="6.066442"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-19T15:39:37.066140" elapsed="2.241291"/>
+</kw>
+<status status="PASS" start="2025-04-19T15:39:30.997155" elapsed="8.310276"/>
+</test>
+<test id="s1-t2" name="TCI002-เข้าสู่ระบบผู้ดูแลระบบกรณีกรอกข้อมูลไม่ครบ" line="96">
+<kw name="Login Admin invalid">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:39.313567" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-19T15:39:39.312570" elapsed="2.502977"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-04-19T15:39:41.816547" elapsed="0.000000"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-19T15:39:41.816547" elapsed="0.075133"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-19T15:39:41.892916" elapsed="0.018463"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:41.912402" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]'.</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:41.912402" elapsed="0.090506"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:42.003918" level="INFO">Typing text 'AtitayaAdmin@gmail.com' into text field 'id=email-input'.</msg>
+<arg>id=email-input</arg>
+<arg>AtitayaAdmin@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:42.002908" elapsed="0.119628"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:42.122536" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
+<arg>id=login-submit-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:42.122536" elapsed="0.070238"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-19T15:39:45.204010" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-19T15:39:42.192774" elapsed="3.011236"/>
+</kw>
+<status status="PASS" start="2025-04-19T15:39:39.311570" elapsed="5.892440"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-19T15:39:45.204010" elapsed="2.166942"/>
+</kw>
+<status status="PASS" start="2025-04-19T15:39:39.309492" elapsed="8.061460"/>
+</test>
+<test id="s1-t3" name="TCI003-เพิ่มคอร์สกรณีที่ใส่ข้อมูลคอร์สไม่ครบ" line="100">
+<kw name="Login Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:47.374491" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-19T15:39:47.372960" elapsed="2.290116"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.663076" elapsed="0.001004"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.664080" elapsed="0.083356"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-19T15:39:49.748445" level="INFO">${timestamp} = 20250419_153949</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.748445" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:49.924913" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_login_start_20250419_153949.png"&gt;&lt;img src="screenshots/admin_login_start_20250419_153949.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.748445" elapsed="0.176468"/>
+</kw>
+<arg>admin_login_start</arg>
+<status status="PASS" start="2025-04-19T15:39:49.747436" elapsed="0.177477"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.924913" elapsed="0.016114"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:49.942067" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]'.</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:49.942067" elapsed="0.096399"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-19T15:39:50.039473" level="INFO">${timestamp} = 20250419_153950</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.038466" elapsed="0.001007"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:50.153941" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_role_selected_20250419_153950.png"&gt;&lt;img src="screenshots/admin_role_selected_20250419_153950.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.039473" elapsed="0.114468"/>
+</kw>
+<arg>admin_role_selected</arg>
+<status status="PASS" start="2025-04-19T15:39:50.038466" elapsed="0.115475"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=email-input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.153941" elapsed="0.016030"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:50.169971" level="INFO">Typing text 'AtitayaAdmin@gmail.com' into text field 'id=email-input'.</msg>
+<arg>id=email-input</arg>
+<arg>AtitayaAdmin@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.169971" elapsed="0.141204"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:50.312181" level="INFO">Typing password into text field 'id=password-input'.</msg>
+<msg time="2025-04-19T15:39:50.342757" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password-input</arg>
+<arg>1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.312181" elapsed="0.123982"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-19T15:39:50.437170" level="INFO">${timestamp} = 20250419_153950</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.437170" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:50.538886" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_credentials_entered_20250419_153950.png"&gt;&lt;img src="screenshots/admin_credentials_entered_20250419_153950.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.437170" elapsed="0.102733"/>
+</kw>
+<arg>admin_credentials_entered</arg>
+<status status="PASS" start="2025-04-19T15:39:50.437170" elapsed="0.102733"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-19T15:39:50.540903" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
+<arg>id=login-submit-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-19T15:39:50.539903" elapsed="0.081552"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:10.953109" elapsed="0.246391"/>
+<status status="PASS" start="2025-04-19T15:39:50.621455" elapsed="0.072816"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:11.377797" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T15:22:11.377797" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</msg>
+<msg time="2025-04-19T15:39:50.801511" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-19T15:39:50.801511" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</msg>
 <arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
 <arg>เข้าสู่ระบบสำเร็จ!</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T15:22:11.200512" elapsed="0.228477">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<status status="FAIL" start="2025-04-19T15:39:50.694271" elapsed="0.108746">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
 </kw>
 <kw name="Capture Step Screenshot">
-<arg>user_login_success</arg>
-<status status="NOT RUN" start="2025-04-19T15:22:11.430101" elapsed="0.000000"/>
+<arg>admin_login_success</arg>
+<status status="NOT RUN" start="2025-04-19T15:39:50.803017" elapsed="0.001008"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T15:22:11.431115" elapsed="2.149966"/>
+<status status="FAIL" start="2025-04-19T15:39:47.372960" elapsed="3.431065">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
 </kw>
-<status status="FAIL" start="2025-04-19T15:22:06.568638" elapsed="7.013441">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
-</test>
-<test id="s1-t2" name="Invalid Login Attempt" line="47">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:13.584084" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T15:22:13.583078" elapsed="2.433049"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.016127" elapsed="0.001510"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.018651" elapsed="0.125663"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:16.145315" level="INFO">${timestamp} = 20250419_152216</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.145315" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:16.384685" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/invalid_login_start_20250419_152216.png"&gt;&lt;img src="screenshots/invalid_login_start_20250419_152216.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.145315" elapsed="0.239370"/>
-</kw>
-<arg>invalid_login_start</arg>
-<status status="PASS" start="2025-04-19T15:22:16.144314" elapsed="0.240371"/>
+<kw name="DashboardAdmin">
+<status status="NOT RUN" start="2025-04-19T15:39:50.804025" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<arg>id=courses-link</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.386104" elapsed="0.032531"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:16.419690" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<arg>id=courses-link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.419690" elapsed="0.096032"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:16.516721" level="INFO">${timestamp} = 20250419_152216</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.516721" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:16.716112" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/invalid_role_selected_20250419_152216.png"&gt;&lt;img src="screenshots/invalid_role_selected_20250419_152216.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.517723" elapsed="0.198389"/>
-</kw>
-<arg>invalid_role_selected</arg>
-<status status="PASS" start="2025-04-19T15:22:16.516721" elapsed="0.199391"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=email-input</arg>
+<arg>id=add-course-btn</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.716112" elapsed="0.025157"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:16.742268" level="INFO">Typing text 'invalid@example.com' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>invalid@example.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.742268" elapsed="0.142757"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:16.886034" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T15:22:16.923482" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>wrongpassword</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:16.885025" elapsed="0.115335"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:17.001361" level="INFO">${timestamp} = 20250419_152217</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.001361" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:17.120371" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/invalid_credentials_entered_20250419_152217.png"&gt;&lt;img src="screenshots/invalid_credentials_entered_20250419_152217.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.002869" elapsed="0.117502"/>
-</kw>
-<arg>invalid_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T15:22:17.001361" elapsed="0.119587"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:17.121991" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
-<arg>id=login-submit-btn</arg>
+<arg>id=add-course-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.121455" elapsed="0.079073"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=duration_hours-upload-popup</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=max_seats-upload-popup</arg>
+<arg>20</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.805025" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=start_date-upload-popup</arg>
+<arg>10102025</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>id=thumbnail-upload-popup</arg>
+<arg>C:\\Users\\pitch\\OneDrive\\Desktop\\ปี 3 เทอม 2\\Uknowme\\Uknowme-Lastest\\Uknowme2025_/image/download.jpg</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>id=video-upload-popup</arg>
+<arg>C:\\Users\\pitch\\OneDrive\\Desktop\\ปี 3 เทอม 2\\Uknowme\\Uknowme-Lastest\\Uknowme2025_/image/12607801_1920_1080_30fps.mp4</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>id=qr_code-upload-popup</arg>
+<arg>C:\\Users\\pitch\\OneDrive\\Desktop\\ปี 3 เทอม 2\\Uknowme\\Uknowme-Lastest\\Uknowme2025_/image/download.jpg</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
+<arg>id=upload-btn-upload-popup</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.201542" elapsed="0.244627"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:17.470895" level="INFO">Element 'xpath=//div[contains(@class, 'swal2-html-container')]' contains text 'Invalid email or password'.</msg>
-<arg>xpath=//div[contains(@class, 'swal2-html-container')]</arg>
-<arg>Invalid email or password</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.446736" elapsed="0.024159"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:17.472407" level="INFO">${timestamp} = 20250419_152217</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.472407" elapsed="0.001013"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:17.570509" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/invalid_login_error_20250419_152217.png"&gt;&lt;img src="screenshots/invalid_login_error_20250419_152217.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.473420" elapsed="0.098104"/>
-</kw>
-<arg>invalid_login_error</arg>
-<status status="PASS" start="2025-04-19T15:22:17.471895" elapsed="0.099629"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T15:22:17.572522" elapsed="2.165585"/>
-</kw>
-<status status="PASS" start="2025-04-19T15:22:13.583078" elapsed="6.155948"/>
-</test>
-<test id="s1-t3" name="Register As User" line="74">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:19.742046" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T15:22:19.741052" elapsed="2.399791"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.141843" elapsed="0.000000"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.142841" elapsed="0.127904"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:22.271752" level="INFO">${timestamp} = 20250419_152222</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.271752" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:22.521737" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_152222.png"&gt;&lt;img src="screenshots/user_login_start_20250419_152222.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.271752" elapsed="0.249985"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T15:22:22.270745" elapsed="0.250992"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.521737" elapsed="0.026327"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:22.548064" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<arg>id=upload-btn-upload-popup</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.548064" elapsed="0.100032"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:22.649599" level="INFO">${timestamp} = 20250419_152222</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.649094" elapsed="0.000505"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:22.850554" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_152222.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_152222.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.649599" elapsed="0.200955"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T15:22:22.648096" elapsed="0.202458"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:22.851552" level="INFO">Clicking element 'id=signup-btn'.</msg>
-<arg>id=signup-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.851552" elapsed="0.121961"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=signup-form</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:22.973513" elapsed="0.025940"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.000470" level="INFO">Typing text 'Athitiya Chaisiriwatthanachai' into text field 'id=name-input'.</msg>
-<arg>id=name-input</arg>
-<arg>Athitiya Chaisiriwatthanachai</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.000470" elapsed="0.214027"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.215496" level="INFO">Typing text 'Uknowme Asset' into text field 'id=company-input'.</msg>
-<arg>id=company-input</arg>
-<arg>Uknowme Asset</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.215496" elapsed="0.178654"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.395146" level="INFO">Typing text '1234567899998' into text field 'id=citizen-id-input'.</msg>
-<arg>id=citizen-id-input</arg>
-<arg>1234567899998</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.395146" elapsed="0.106301"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.502959" level="INFO">Typing text 'athitiya.chaisiriwatthanachai991@uknowme.com' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>athitiya.chaisiriwatthanachai991@uknowme.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.502959" elapsed="0.149949"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.653976" level="INFO">Typing text '0966566414' into text field 'id=phone-input'.</msg>
-<arg>id=phone-input</arg>
-<arg>0966566414</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.653976" elapsed="0.112954"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:23.768932" level="INFO">${timestamp} = 20250419_152223</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.767947" elapsed="0.000985"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.857023" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_152223.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_152223.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.768932" elapsed="0.088091"/>
-</kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T15:22:23.767947" elapsed="0.090084"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:23.858031" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
-<arg>id=submit-signup-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.858031" elapsed="0.083426"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:23.942466" elapsed="0.093147"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:24.164625" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T15:22:24.164625" level="FAIL">Element 'xpath=//div[contains(@class, 'swal2-html-container')]' should have contained text 'การลงทะเบียนเสร็จสมบูรณ์' but its text was 'อีเมลนี้เคยลงทะเบียนไว้แล้ว กรุณาใช้อีเมลอื่น'.</msg>
-<arg>xpath=//div[contains(@class, 'swal2-html-container')]</arg>
-<arg>การลงทะเบียนเสร็จสมบูรณ์</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T15:22:24.036614" elapsed="0.128011">Element 'xpath=//div[contains(@class, 'swal2-html-container')]' should have contained text 'การลงทะเบียนเสร็จสมบูรณ์' but its text was 'อีเมลนี้เคยลงทะเบียนไว้แล้ว กรุณาใช้อีเมลอื่น'.</status>
-</kw>
-<kw name="Capture Step Screenshot">
-<arg>user_registration_success</arg>
-<status status="NOT RUN" start="2025-04-19T15:22:24.165633" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T15:22:24.165633" elapsed="2.147533"/>
-</kw>
-<status status="FAIL" start="2025-04-19T15:22:19.741052" elapsed="6.572114">Element 'xpath=//div[contains(@class, 'swal2-html-container')]' should have contained text 'การลงทะเบียนเสร็จสมบูรณ์' but its text was 'อีเมลนี้เคยลงทะเบียนไว้แล้ว กรุณาใช้อีเมลอื่น'.</status>
-</test>
-<test id="s1-t4" name="Invalid Register As User" line="107">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:26.314964" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T15:22:26.314964" elapsed="2.454877"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T15:22:28.770843" elapsed="0.000000"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T15:22:28.770843" elapsed="0.119881"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:28.891723" level="INFO">${timestamp} = 20250419_152228</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:28.891723" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.110074" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_152228.png"&gt;&lt;img src="screenshots/user_login_start_20250419_152228.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:28.892750" elapsed="0.218333"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T15:22:28.890724" elapsed="0.220359"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.111083" elapsed="0.025022"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.136105" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.136105" elapsed="0.108653"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:29.246754" level="INFO">${timestamp} = 20250419_152229</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.246754" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.463863" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_152229.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_152229.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.246754" elapsed="0.217109"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T15:22:29.245756" elapsed="0.218107"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.464876" level="INFO">Clicking element 'id=signup-btn'.</msg>
-<arg>id=signup-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.463863" elapsed="0.165784"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=signup-form</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.630658" elapsed="0.022975"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.655642" level="INFO">Typing text 'Athitiya Chaisiriwatthanachai' into text field 'id=name-input'.</msg>
-<arg>id=name-input</arg>
-<arg>Athitiya Chaisiriwatthanachai</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.654641" elapsed="0.217517"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.873155" level="INFO">Typing text 'Uknowme Asset' into text field 'id=company-input'.</msg>
-<arg>id=company-input</arg>
-<arg>Uknowme Asset</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.873155" elapsed="0.113394"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:29.988057" level="INFO">Typing text '1234567899999' into text field 'id=citizen-id-input'.</msg>
-<arg>id=citizen-id-input</arg>
-<arg>1234567899999</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:29.986549" elapsed="0.111631"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.100108" level="INFO">Typing text 'athitiya.chaisiriwatthanachai@uknowme.com' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>athitiya.chaisiriwatthanachai@uknowme.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.099552" elapsed="0.137892"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.237444" level="INFO">Typing text '0966566414' into text field 'id=phone-input'.</msg>
-<arg>id=phone-input</arg>
-<arg>0966566414</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.237444" elapsed="0.184479"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:30.422924" level="INFO">${timestamp} = 20250419_152230</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.422924" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.512403" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_152230.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_152230.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.422924" elapsed="0.089479"/>
-</kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T15:22:30.421923" elapsed="0.091480"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.513403" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
-<arg>id=submit-signup-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.513403" elapsed="0.085891"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.599294" elapsed="0.084048"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.711241" level="INFO">Element 'xpath=//div[contains(@class, 'swal2-html-container')]' contains text 'อีเมลนี้เคยลงทะเบียนไว้แล้ว กรุณาใช้อีเมลอื่น'.</msg>
-<arg>xpath=//div[contains(@class, 'swal2-html-container')]</arg>
-<arg>อีเมลนี้เคยลงทะเบียนไว้แล้ว กรุณาใช้อีเมลอื่น</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.684350" elapsed="0.026891"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:30.712243" level="INFO">${timestamp} = 20250419_152230</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.712243" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:30.811524" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_registration_failed_20250419_152230.png"&gt;&lt;img src="screenshots/user_registration_failed_20250419_152230.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.712243" elapsed="0.099281"/>
-</kw>
-<arg>user_registration_failed</arg>
-<status status="PASS" start="2025-04-19T15:22:30.712243" elapsed="0.099281"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T15:22:30.812528" elapsed="2.183194"/>
-</kw>
-<status status="PASS" start="2025-04-19T15:22:26.313954" elapsed="6.682445"/>
-</test>
-<test id="s1-t5" name="User Enrolled Courses" line="140">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:32.997410" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T15:22:32.997410" elapsed="2.417052"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.414971" elapsed="0.000000"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.415978" elapsed="0.113183"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:35.531183" level="INFO">${timestamp} = 20250419_152235</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.531183" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:35.774976" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_152235.png"&gt;&lt;img src="screenshots/user_login_start_20250419_152235.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.531183" elapsed="0.244796"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T15:22:35.530174" elapsed="0.245805"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.775979" elapsed="0.023214"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:35.800203" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.800203" elapsed="0.124679"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:35.926883" level="INFO">${timestamp} = 20250419_152235</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.925882" elapsed="0.001001"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:36.155084" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_152235.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_152235.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:35.926883" elapsed="0.228201"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T15:22:35.925882" elapsed="0.230200"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=email-input</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.156082" elapsed="0.025219"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:36.182290" level="INFO">Typing text 'phattarapong.phe@spumail.net' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>phattarapong.phe@spumail.net</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.182290" elapsed="0.152476"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:36.335778" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T15:22:36.389345" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>1329900959999</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.335778" elapsed="0.140893"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T15:22:36.478670" level="INFO">${timestamp} = 20250419_152236</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.477671" elapsed="0.000999"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:36.598751" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_152236.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_152236.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.478670" elapsed="0.120081"/>
-</kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T15:22:36.477671" elapsed="0.121608"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:36.600795" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
-<arg>id=login-submit-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.599786" elapsed="0.079569"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T15:22:36.679355" elapsed="0.251226"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T15:22:37.079820" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T15:22:37.080829" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</msg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>เข้าสู่ระบบสำเร็จ!</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T15:22:36.931165" elapsed="0.149664">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=/html/body/div[2]/div/div[6]/button[1]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.080829" elapsed="0.000999"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.806024" elapsed="0.000000"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.081828" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'course-card')]</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.081828" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<arg>user_homepage</arg>
-<status status="NOT RUN" start="2025-04-19T15:22:37.082825" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'course-card')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.082825" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>id=about-course-content</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.082825" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<arg>course_details</arg>
-<status status="NOT RUN" start="2025-04-19T15:22:37.084333" elapsed="0.000000"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>id=register-course-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.084333" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.084333" elapsed="0.000000"/>
-</kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-html-container')]</arg>
-<arg>ลงทะเบียนสำเร็จ!</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="NOT RUN" start="2025-04-19T15:22:37.084333" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<arg>user_enrolled_course_success</arg>
-<status status="NOT RUN" start="2025-04-19T15:22:37.085341" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-04-19T15:39:50.807532" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T15:22:37.085341" elapsed="2.149905"/>
+<status status="PASS" start="2025-04-19T15:39:50.807532" elapsed="2.138768"/>
 </kw>
-<status status="FAIL" start="2025-04-19T15:22:32.997410" elapsed="6.238471">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
+<status status="FAIL" start="2025-04-19T15:39:47.371960" elapsed="5.574340">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'เข้าสู่ระบบสำเร็จ!' but its text was 'เกิดข้อผิดพลาด'.</status>
 </test>
-<status status="FAIL" start="2025-04-19T15:22:06.153650" elapsed="33.083238"/>
+<status status="FAIL" start="2025-04-19T15:39:30.784185" elapsed="22.162115"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="3" skip="0">All Tests</stat>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="TestCase" id="s1" pass="2" fail="3" skip="0">TestCase</stat>
+<stat name="NegativeAdmin" id="s1" pass="2" fail="1" skip="0">NegativeAdmin</stat>
 </suite>
 </statistics>
 <errors>

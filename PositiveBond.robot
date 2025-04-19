@@ -2,10 +2,12 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
+Suite Setup    LogIn
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://localhost:5173/
+${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
 *** Keywords ***
@@ -24,9 +26,9 @@ Signup
     Click Element    id=signup-btn
     Input Text    id=name-input    Phattarapong Uknowme
     Input Text    id=company-input    Uknowme Asset
-    Input Text    id=citizen-id-input    1429900959405
-    Input Text    id=email-input    phattarapong@gmail.com
-    Input Text    id=phone-input    0966566414
+    Input Text    id=citizen-id-input    1429900959467
+    Input Text    id=email-input    phattarapong34467@gmail.com
+    Input Text    id=phone-input    0966566467
     Wait Until Element Is Visible    id=submit-signup-btn
     Click Element    id=submit-signup-btn
     
@@ -60,36 +62,32 @@ LogIn
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
     Capture Step Screenshot    user_login_success
+    Homepage
     
 
 Homepage
-    Go To    http://localhost:5173/UserHomepage
+    Go To    http://localhost/UserHomepage
     Sleep    5s 
 
 Profile
-    Wait Until Element Is Visible    xpath=//*[@id="user-menu-btn"]
-    Click Element    xpath=//*[@id="user-menu-btn"]
+    Wait Until Element Is Visible    id=user-menu-btn
+    Click Element    id=user-menu-btn
 
 *** Test Cases ***
-TC001-Signup
+TCI001-การสมัครสมาชิก
     Signup
 
-TC002-logIn
-    LogIn
 
-TC003-User-Profile
+TCI003-โปรไฟล์
     LogIn
     Homepage
     Profile
-    [Teardown]    Close Browser
+    
 
-TC004-Edit-Profile
-    LogIn
-    Homepage
-    Profile
+TCI004-แก้ไขข้อมูลโปรไฟล์
 
-    Wait Until Element Is Visible    xpath=//*[@id="profile-btn"]
-    Click Element    xpath=//*[@id="profile-btn"]
+    Wait Until Element Is Visible    id=profile-btn
+    Click Element    id=profile-btn
 
     # Edit Profile Information
     Wait Until Element Is Visible    id=edit-profile-btn
@@ -99,16 +97,17 @@ TC004-Edit-Profile
 
     Wait Until Element Is Visible    id=save-profile-btn
     Click Element    id=save-profile-btn
-    [Teardown]    Close Browser
+    Sleep    3s
+    Wait Until Element Is Visible    id=close-profile-btn
+    Click Button     id=close-profile-btn
 
-TC005-Change-Pass
-    LogIn
-    Homepage
+TCI005-เปลี่ยนรหัสผ่าน
+
     Profile
 
     Wait Until Element Is Visible    id=change-password-btn
     Click Element    id=change-password-btn
-    Input Password    id=swal-old-password    1429900959405
+    Input Password    id=swal-old-password    12345
     Input Password    id=swal-new-password    12345
 
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
@@ -118,9 +117,9 @@ TC005-Change-Pass
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    สำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
+    
 
-TC006-Course
-    LogIn
+TCI006-หลักสูตรของฉัน
     Homepage
     Profile
     Wait Until Element Is Visible    xpath=//*[@id="profile-btn"]
@@ -129,12 +128,14 @@ TC006-Course
     Wait Until Element Is Visible    id=my-courses-link
     Click Element    id=my-courses-link
 
-TC007-assign-course
-    LogIn
-    Homepage
+    Wait Until Element Is Visible    id=close-history-btn
+    Click Element    id=close-history-btn
 
-    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
-    Click Element    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
+TCI007-ลงทะเบียนคอร์ส
+    Wait Until Element Is Visible    id=user-nav-link-courses
+    Click Element    id=user-nav-link-courses
+    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709ccb3c628150b54faeae4"]
+    Click Element    xpath=//*[@id="course-card-6709ccb3c628150b54faeae4"]
     Wait Until Element Is Visible    id=register-course-btn
     Click Element    id=register-course-btn
 
@@ -142,22 +143,16 @@ TC007-assign-course
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ลงทะเบียนสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
-TC-008-start-course
-    LogIn
-    Homepage
-
-    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
-    Click Element    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
+TCI-008-เริ่มเรียน
+    
     Wait Until Element Is Visible    id=start-learning-btn
     Click Element    id=start-learning-btn
-    [Teardown]    Close Browser
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    Scan QR Code to Start Learning
+    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
 
-TC_009-Cancel-Course
-    LogIn
-    Homepage
-
-    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
-    Click Element    xpath=//*[@id="course-card-6709c570c628150b54faeab8"]
+TCI_009-ยกเลิกการลงทะเบียน
+    
     Wait Until Element Is Visible    xpath=//*[@id="cancel-enrollment-btn"]
     Click Element    xpath=//*[@id="cancel-enrollment-btn"]
 
@@ -168,20 +163,33 @@ TC_009-Cancel-Course
     Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
     Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ยกเลิกการลงทะเบียนสำเร็จ
     Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    [Teardown]    Close Browser
+    
 
-TC010-Roadmap
-    LogIn
-    Homepage
+TCI010-ตารางอบรม
+
     Click Element    id=user-nav-link-schedule
 
-TC011-Logout
-    LogIn
+TCI011-ดาว์นโหลดใบรับรอง
+
+    Profile
+
+    Wait Until Element Is Visible    id=profile-btn
+    Click Element    id=profile-btn
+
+    Wait Until Element Is Visible   id=my-courses-link
+    Click Element   id=my-courses-link
+
+    Wait Until Element Is Visible    id=download-certificate-btn-0
+    Click Element    id=download-certificate-btn-0
+
+    Wait Until Element Is Visible    id=close-history-btn
+    Click Button     id=close-history-btn
+    
+TCI012-ออกจากระบบ
     Homepage
     Profile
 
     Wait Until Element Is Visible    id=logout-btn
     Click Element    id=logout-btn
 
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
-    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ยืนยันการออกจากระบบ
+    

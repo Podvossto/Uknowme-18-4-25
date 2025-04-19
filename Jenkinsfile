@@ -83,9 +83,13 @@ FRONTEND_URL=http://localhost:5173
         stage('Run Robot Tests') {
             steps {
                 bat '''
-                    call %VENV_PATH%\\Scripts\\activate
-                    if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
-                    if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
+                    robot -d %ROBOT_REPORTS_DIR% \
+                        PositiveSuperAdmin.robot \
+                        PositiveBond.robot \
+                        PositiveAdmin.robot \
+                        NegativeSuperAdmin.robot \
+                        NegativeBond.robot \
+                        NegativeAdmin.robot
                 '''
             }
         }
