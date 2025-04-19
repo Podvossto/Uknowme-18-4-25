@@ -54,6 +54,22 @@ pipeline {
             }
         }
 
+        stage('Create .env File') {
+            steps {
+                writeFile file: 'Server/.env', text: '''
+MONGODB_URI=mongodb://127.0.0.1:27017/Uknowmedatabase
+PORT=3000
+JWT_SECRET=uknowme
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=UknowmeService@gmail.com
+SMTP_PASS=ldgukmgxnmsrbkkw
+OTP_SECRET=uknowme
+FRONTEND_URL=http://localhost:5173
+'''
+            }
+        }
+
         stage('Build Docker Images') {
             steps {
                 bat 'docker-compose build'
