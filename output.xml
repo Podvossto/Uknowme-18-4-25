@@ -1,419 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T18:27:55.463860" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T19:11:22.461959" rpa="false" schemaversion="5">
 <suite id="s1" name="PositiveBond" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\PositiveBond.robot">
-<kw name="Setup Bond Trader" type="SETUP">
-<kw name="Register Bond Trader">
+<kw name="Setup Suite" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-04-19T19:11:22.749324" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\screenshots"&gt;C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${SCREENSHOT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-04-19T19:11:22.748310" elapsed="0.001014"/>
+</kw>
+<kw name="Signup">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:27:55.779652" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<msg time="2025-04-19T19:11:22.750586" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T18:27:55.778661" elapsed="2.619009"/>
+<status status="PASS" start="2025-04-19T19:11:22.750586" elapsed="2.901365"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T18:27:58.398672" elapsed="0.000000"/>
+<status status="PASS" start="2025-04-19T19:11:25.651951" elapsed="0.001011"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T18:27:58.399668" elapsed="0.085806"/>
+<status status="PASS" start="2025-04-19T19:11:25.652962" elapsed="0.105459"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-19T18:28:00.496806" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-19T18:27:58.485474" elapsed="2.011332"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:00.507340" level="INFO">Current page contains element 'id=role-btn-trader'.</msg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=role-btn-trader</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.496806" elapsed="0.010534"/>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-19T19:11:25.758421" elapsed="0.021059"/>
 </kw>
-<msg time="2025-04-19T18:28:00.507340" level="INFO">${role_btn_exists} = True</msg>
-<var>${role_btn_exists}</var>
-<arg>Page Should Contain Element</arg>
-<arg>id=role-btn-trader</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.496806" elapsed="0.010534"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:00.508831" level="INFO">Clicking element 'id=role-btn-trader'.</msg>
+<msg time="2025-04-19T19:11:25.779480" level="INFO">Clicking element 'id=role-btn-trader'.</msg>
 <arg>id=role-btn-trader</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.508831" elapsed="0.113025"/>
-</kw>
-<arg>${role_btn_exists}</arg>
-<arg>Click Element</arg>
-<arg>id=role-btn-trader</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.508831" elapsed="0.113025"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${role_btn_exists}</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<arg>timeout=15s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.621856" elapsed="0.000999"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>not ${role_btn_exists}</arg>
-<arg>Click Element</arg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.622855" elapsed="0.000000"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-19T18:28:01.630252" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-19T18:28:00.622855" elapsed="1.007397"/>
+<status status="PASS" start="2025-04-19T19:11:25.779480" elapsed="0.119984"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=signup-btn</arg>
-<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:01.630252" elapsed="0.016945"/>
+<status status="PASS" start="2025-04-19T19:11:25.899464" elapsed="0.019451"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:01.648227" level="INFO">Clicking element 'id=signup-btn'.</msg>
+<msg time="2025-04-19T19:11:25.919425" level="INFO">Clicking element 'id=signup-btn'.</msg>
 <arg>id=signup-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:01.648227" elapsed="0.079309"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-19T18:28:02.741494" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-19T18:28:01.728158" elapsed="1.013336"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=name-input</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:02.741494" elapsed="0.026597"/>
+<status status="PASS" start="2025-04-19T19:11:25.919425" elapsed="0.094394"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:02.768091" level="INFO">Typing text 'Bond Trader Test' into text field 'id=name-input'.</msg>
+<msg time="2025-04-19T19:11:26.013819" level="INFO">Typing text 'Phattarapong Uknowme' into text field 'id=name-input'.</msg>
 <arg>id=name-input</arg>
-<arg>${BOND_NAME}</arg>
+<arg>${USER_NAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:02.768091" elapsed="0.115010"/>
+<status status="PASS" start="2025-04-19T19:11:26.013819" elapsed="0.154140"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:02.884107" level="INFO">Typing text 'Test Trading Co.' into text field 'id=company-input'.</msg>
+<msg time="2025-04-19T19:11:26.167959" level="INFO">Typing text 'Uknowme Asset' into text field 'id=company-input'.</msg>
 <arg>id=company-input</arg>
-<arg>${BOND_COMPANY}</arg>
+<arg>${USER_COMPANY}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:02.884107" elapsed="0.091362"/>
+<status status="PASS" start="2025-04-19T19:11:26.167959" elapsed="0.110047"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:02.976475" level="INFO">Typing text '1234567890123' into text field 'id=citizen-id-input'.</msg>
+<msg time="2025-04-19T19:11:26.278006" level="INFO">Typing text '1429900959467' into text field 'id=citizen-id-input'.</msg>
 <arg>id=citizen-id-input</arg>
-<arg>${BOND_CITIZEN_ID}</arg>
+<arg>${USER_CITIZEN_ID}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:02.975469" elapsed="0.115558"/>
+<status status="PASS" start="2025-04-19T19:11:26.278006" elapsed="0.088179"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.092029" level="INFO">Typing text 'trader@uknowme.com' into text field 'id=email-input'.</msg>
+<msg time="2025-04-19T19:11:26.367189" level="INFO">Typing text 'phattarapong34467@gmail.com' into text field 'id=email-input'.</msg>
 <arg>id=email-input</arg>
-<arg>${BOND_EMAIL}</arg>
+<arg>${USER_EMAIL}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.091027" elapsed="0.090484"/>
+<status status="PASS" start="2025-04-19T19:11:26.367189" elapsed="0.139289"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.183033" level="INFO">Typing text '0899999998' into text field 'id=phone-input'.</msg>
+<msg time="2025-04-19T19:11:26.507478" level="INFO">Typing text '0966566467' into text field 'id=phone-input'.</msg>
 <arg>id=phone-input</arg>
-<arg>${BOND_PHONE}</arg>
+<arg>${USER_PHONE}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.181511" elapsed="0.086546"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.269066" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T18:28:03.331891" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>${BOND_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.269066" elapsed="0.117019"/>
+<status status="PASS" start="2025-04-19T19:11:26.506478" elapsed="0.111382"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>id=submit-signup-btn</arg>
-<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.387085" elapsed="0.014794"/>
+<status status="PASS" start="2025-04-19T19:11:26.617860" elapsed="0.013882"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.401879" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
+<msg time="2025-04-19T19:11:26.632757" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
 <arg>id=submit-signup-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.401879" elapsed="0.087563"/>
+<status status="PASS" start="2025-04-19T19:11:26.631742" elapsed="0.065599"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.489442" elapsed="0.078463"/>
+<status status="PASS" start="2025-04-19T19:11:26.697341" elapsed="0.062994"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.691882" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T18:28:03.691882" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ' but its text was 'ไม่สามารถลงทะเบียนได้'.</msg>
+<msg time="2025-04-19T19:11:26.882886" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-19T19:11:26.882886" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</msg>
 <arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>สมัครสมาชิกสำเร็จ</arg>
+<arg>สมัครสมาชิกสำเร็จ!</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T18:28:03.568916" elapsed="0.127022">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</kw>
-<msg time="2025-04-19T18:28:03.696932" level="INFO">${status} = False</msg>
-<var>${status}</var>
-<arg>Element Should Contain</arg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>สมัครสมาชิกสำเร็จ</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.567905" elapsed="0.129027"/>
+<status status="FAIL" start="2025-04-19T19:11:26.760335" elapsed="0.124091">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:03.696932" level="INFO">Clicking element 'xpath=//button[contains(@class, 'swal2-confirm')]'.</msg>
 <arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.696932" elapsed="0.092019"/>
+<status status="NOT RUN" start="2025-04-19T19:11:26.884426" elapsed="0.000000"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T18:28:03.788951" elapsed="2.155373"/>
+<status status="PASS" start="2025-04-19T19:11:26.884426" elapsed="2.187303"/>
 </kw>
-<status status="PASS" start="2025-04-19T18:27:55.778661" elapsed="10.165663"/>
+<status status="FAIL" start="2025-04-19T19:11:22.750586" elapsed="6.321143">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </kw>
-<kw name="LogIn">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:05.946841" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T18:28:05.945331" elapsed="2.508824"/>
+<status status="FAIL" start="2025-04-19T19:11:22.747191" elapsed="6.324538">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>${DELAY}</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T18:28:08.455686" elapsed="0.001010"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T18:28:08.456696" elapsed="0.124457"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T18:28:08.583974" level="INFO">${timestamp} = 20250419_182808</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T18:28:08.582959" elapsed="0.001015"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:08.881330" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250419_182808.png"&gt;&lt;img src="screenshots/user_login_start_20250419_182808.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T18:28:08.584484" elapsed="0.296846"/>
-</kw>
-<arg>user_login_start</arg>
-<status status="PASS" start="2025-04-19T18:28:08.582150" elapsed="0.299180"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-19T18:28:10.890053" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-19T18:28:08.881330" elapsed="2.008723"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:10.890053" elapsed="0.024734"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:10.914787" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
-<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:10.914787" elapsed="0.128219"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T18:28:11.044524" level="INFO">${timestamp} = 20250419_182811</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T18:28:11.044524" elapsed="0.000000"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:11.280212" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250419_182811.png"&gt;&lt;img src="screenshots/user_role_selected_20250419_182811.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T18:28:11.045532" elapsed="0.235793"/>
-</kw>
-<arg>user_role_selected</arg>
-<status status="PASS" start="2025-04-19T18:28:11.043006" elapsed="0.238319"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-04-19T18:28:12.289156" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-04-19T18:28:11.281325" elapsed="1.007831"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=email-input</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.289668" elapsed="0.014649"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:12.305374" level="INFO">Typing text 'trader@uknowme.com' into text field 'id=email-input'.</msg>
-<arg>id=email-input</arg>
-<arg>${BOND_EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.305374" elapsed="0.106564"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:12.412537" level="INFO">Typing password into text field 'id=password-input'.</msg>
-<msg time="2025-04-19T18:28:12.461886" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id=password-input</arg>
-<arg>${BOND_PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.412537" elapsed="0.121627"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-04-19T18:28:12.536172" level="INFO">${timestamp} = 20250419_182812</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d_%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.535175" elapsed="0.000997"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:12.648513" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_credentials_entered_20250419_182812.png"&gt;&lt;img src="screenshots/user_credentials_entered_20250419_182812.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.536172" elapsed="0.112341"/>
-</kw>
-<arg>user_credentials_entered</arg>
-<status status="PASS" start="2025-04-19T18:28:12.534164" elapsed="0.114349"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=login-submit-btn</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.648513" elapsed="0.020548"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:12.672123" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
-<arg>id=login-submit-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.671112" elapsed="0.084202"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
-<arg>timeout=15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.755314" elapsed="0.234538"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T18:28:13.136399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T18:28:13.136399" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'ล็อกอินสำเร็จ' but its text was 'เกิดข้อผิดพลาด'.</msg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>ล็อกอินสำเร็จ</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T18:28:12.990861" elapsed="0.145538">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'ล็อกอินสำเร็จ' but its text was 'เกิดข้อผิดพลาด'.</status>
-</kw>
-<msg time="2025-04-19T18:28:13.137431" level="INFO">${status} = False</msg>
-<var>${status}</var>
-<arg>Element Should Contain</arg>
-<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>ล็อกอินสำเร็จ</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-19T18:28:12.989852" elapsed="0.147579"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Fail" owner="BuiltIn">
-<msg time="2025-04-19T18:28:13.138946" level="FAIL">Trader login failed - please check credentials</msg>
-<arg>Trader login failed - please check credentials</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="FAIL" start="2025-04-19T18:28:13.137937" elapsed="0.001009">Trader login failed - please check credentials</status>
-</kw>
-<arg>not ${status}</arg>
-<arg>Fail</arg>
-<arg>Trader login failed - please check credentials</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="FAIL" start="2025-04-19T18:28:13.137937" elapsed="0.001009">Trader login failed - please check credentials</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T18:28:13.138946" elapsed="0.001081"/>
-</kw>
-<kw name="Capture Step Screenshot">
-<arg>user_login_success</arg>
-<status status="NOT RUN" start="2025-04-19T18:28:13.140027" elapsed="0.000000"/>
-</kw>
-<kw name="Homepage">
-<status status="NOT RUN" start="2025-04-19T18:28:13.140027" elapsed="0.000000"/>
-</kw>
-<status status="FAIL" start="2025-04-19T18:28:05.944324" elapsed="7.195703">Trader login failed - please check credentials</status>
-</kw>
-<status status="FAIL" start="2025-04-19T18:27:55.778661" elapsed="17.362379">Trader login failed - please check credentials</status>
-</kw>
-<test id="s1-t1" name="TCI001-การสมัครสมาชิก" line="129">
-<status status="FAIL" start="2025-04-19T18:28:13.141040" elapsed="0.001597">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t1" name="TCI001-การสมัครสมาชิก" line="89">
+<status status="FAIL" start="2025-04-19T19:11:29.071729" elapsed="0.001504">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t2" name="TCI003-โปรไฟล์" line="134">
-<status status="FAIL" start="2025-04-19T18:28:13.145229" elapsed="0.001508">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t2" name="TCI003-โปรไฟล์" line="93">
+<status status="FAIL" start="2025-04-19T19:11:29.073233" elapsed="0.000000">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t3" name="TCI004-แก้ไขข้อมูลโปรไฟล์" line="141">
-<status status="FAIL" start="2025-04-19T18:28:13.147743" elapsed="0.002000">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t3" name="TCI004-แก้ไขข้อมูลโปรไฟล์" line="99">
+<status status="FAIL" start="2025-04-19T19:11:29.074717" elapsed="0.001010">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t4" name="TCI005-เปลี่ยนรหัสผ่าน" line="158">
-<status status="FAIL" start="2025-04-19T18:28:13.150745" elapsed="0.002047">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t4" name="TCI005-เปลี่ยนรหัสผ่าน" line="116">
+<status status="FAIL" start="2025-04-19T19:11:29.075727" elapsed="0.001016">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t5" name="TCI006-หลักสูตรของฉัน" line="183">
-<status status="FAIL" start="2025-04-19T18:28:13.154300" elapsed="0.001009">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t5" name="TCI006-หลักสูตรของฉัน" line="134">
+<status status="FAIL" start="2025-04-19T19:11:29.077738" elapsed="0.000000">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t6" name="TCI007-ลงทะเบียนคอร์ส" line="195">
-<status status="FAIL" start="2025-04-19T18:28:13.156309" elapsed="0.002253">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t6" name="TCI007-ลงทะเบียนคอร์ส" line="146">
+<status status="FAIL" start="2025-04-19T19:11:29.078735" elapsed="0.000000">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t7" name="TCI-008-เริ่มเรียน" line="223">
-<status status="FAIL" start="2025-04-19T18:28:13.159639" elapsed="0.001007">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t7" name="TCI-008-เริ่มเรียน" line="158">
+<status status="FAIL" start="2025-04-19T19:11:29.079745" elapsed="0.000993">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t8" name="TCI_009-ยกเลิกการลงทะเบียน" line="246">
-<status status="FAIL" start="2025-04-19T18:28:13.161669" elapsed="0.001510">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t8" name="TCI_009-ยกเลิกการลงทะเบียน" line="166">
+<status status="FAIL" start="2025-04-19T19:11:29.080738" elapsed="0.002241">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t9" name="TCI010-ตารางอบรม" line="277">
-<status status="FAIL" start="2025-04-19T18:28:13.164187" elapsed="0.001009">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t9" name="TCI010-ตารางอบรม" line="180">
+<status status="FAIL" start="2025-04-19T19:11:29.082979" elapsed="0.001017">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t10" name="TCI011-ดาว์นโหลดใบรับรอง" line="286">
-<status status="FAIL" start="2025-04-19T18:28:13.166722" elapsed="0.001871">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t10" name="TCI011-ดาว์นโหลดใบรับรอง" line="184">
+<status status="FAIL" start="2025-04-19T19:11:29.083996" elapsed="0.001472">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
-<test id="s1-t11" name="TCI012-ออกจากระบบ" line="309">
-<status status="FAIL" start="2025-04-19T18:28:13.169106" elapsed="0.001581">Parent suite setup failed:
-Trader login failed - please check credentials</status>
+<test id="s1-t11" name="TCI012-ออกจากระบบ" line="200">
+<status status="FAIL" start="2025-04-19T19:11:29.086511" elapsed="0.000000">Parent suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T18:28:13.173203" elapsed="2.172142"/>
+<status status="PASS" start="2025-04-19T19:11:29.088564" elapsed="0.000546"/>
 </kw>
-<status status="FAIL" start="2025-04-19T18:27:55.465866" elapsed="19.879479">Suite setup failed:
-Trader login failed - please check credentials</status>
+<status status="FAIL" start="2025-04-19T19:11:22.462973" elapsed="6.626137">Suite setup failed:
+Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
 </suite>
 <statistics>
 <total>

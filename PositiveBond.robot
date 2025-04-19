@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
-Suite Setup    LogIn
+Suite Setup    Setup Suite
 Suite Teardown    Close Browser
 
 *** Variables ***
@@ -10,11 +10,23 @@ ${BROWSER}    chrome
 ${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
+${USER_NAME}    Phattarapong Uknowme
+${USER_COMPANY}    Uknowme Asset
+${USER_CITIZEN_ID}    1429900959467
+${USER_EMAIL}    phattarapong34467@gmail.com
+${USER_PHONE}    0966566467
+${USER_PASSWORD}    1429900959467
+
 *** Keywords ***
+Setup Suite
+    Create Directory    ${SCREENSHOT_DIR}
+    Signup
+
 Capture Step Screenshot
     [Arguments]    ${step_name}
     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
     Capture Page Screenshot    ${SCREENSHOT_DIR}/${step_name}_${timestamp}.png
+
 Signup
     Open Browser    ${URL}    ${BROWSER}
     Set Selenium Speed    ${DELAY}
@@ -24,11 +36,11 @@ Signup
 
     Wait Until Element Is Visible    id=signup-btn
     Click Element    id=signup-btn
-    Input Text    id=name-input    Phattarapong Uknowme
-    Input Text    id=company-input    Uknowme Asset
-    Input Text    id=citizen-id-input    1429900959467
-    Input Text    id=email-input    phattarapong34467@gmail.com
-    Input Text    id=phone-input    0966566467
+    Input Text    id=name-input    ${USER_NAME}
+    Input Text    id=company-input    ${USER_COMPANY}
+    Input Text    id=citizen-id-input    ${USER_CITIZEN_ID}
+    Input Text    id=email-input    ${USER_EMAIL}
+    Input Text    id=phone-input    ${USER_PHONE}
     Wait Until Element Is Visible    id=submit-signup-btn
     Click Element    id=submit-signup-btn
     
@@ -51,8 +63,8 @@ LogIn
     
     # Input Login Credentials
     Wait Until Element Is Visible    id=email-input
-    Input Text    id=email-input    phattarapong@gmail.com
-    Input Password    id=password-input    12345
+    Input Text    id=email-input    ${USER_EMAIL}
+    Input Password    id=password-input    ${USER_PASSWORD}
     Capture Step Screenshot    user_credentials_entered
     
     # Click Login Button
@@ -86,8 +98,8 @@ TCI003-โปรไฟล์
 
 TCI004-แก้ไขข้อมูลโปรไฟล์
 
-    Wait Until Element Is Visible    id=profile-btn
-    Click Element    id=profile-btn
+    Wait Until Element Is Visible    xpath=//*[@id="user-menu-btn"]
+    Click Element    xpath=//*[@id="user-menu-btn"]
 
     # Edit Profile Information
     Wait Until Element Is Visible    id=edit-profile-btn
@@ -134,8 +146,8 @@ TCI006-หลักสูตรของฉัน
 TCI007-ลงทะเบียนคอร์ส
     Wait Until Element Is Visible    id=user-nav-link-courses
     Click Element    id=user-nav-link-courses
-    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709ccb3c628150b54faeae4"]
-    Click Element    xpath=//*[@id="course-card-6709ccb3c628150b54faeae4"]
+    Wait Until Element Is Visible    xpath=//*[@id="course-card-6709c473c628150b54faeaad"]
+    Click Element    xpath=//*[@id="course-card-6709c473c628150b54faeaad"]
     Wait Until Element Is Visible    id=register-course-btn
     Click Element    id=register-course-btn
 
