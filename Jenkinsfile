@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         GIT_REPO = 'https://github.com/Podvossto/Uknowme-18-4-25.git'
         GIT_BRANCH = 'main'
@@ -9,7 +9,7 @@ pipeline {
         ROBOT_REPORTS_DIR = 'robot-reports'
         VENV_PATH = 'robot-venv'
     }
-    
+
     stages {
         stage('Git Clone') {
             steps {
@@ -39,8 +39,6 @@ pipeline {
                 '''
             }
         }
-
-        
 
         stage('Check Docker') {
             steps {
@@ -85,35 +83,35 @@ FRONTEND_URL=http://localhost:5173
         stage('Wait for Frontend') {
             steps {
                 bat '''
-                    powershell -Command "
-                        $maxRetries = 10
-                        $retry = 0
-                        $success = $false
-                        while ($retry -lt $maxRetries -and -not $success) {
-                            try {
-                                Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 10
-                                $success = $true
-                            } catch {
-                                Start-Sleep -Seconds 5
-                                $retry++
-                            }
-                        }
-                        if (-not $success) {
-                            Write-Error 'Frontend did not become available in time.'
-                            exit 1
-                        }
-                    "
-                '''
+    powershell -NoProfile -Command "
+        $maxRetries = 10;
+        $retry = 0;
+        $success = $false;
+        while ($retry -lt $maxRetries -and -not $success) {
+            try {
+                Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 10;
+                $success = $true
+            } catch {
+                Start-Sleep -Seconds 5;
+                $retry++
+            }
+        };
+        if (-not $success) {
+            Write-Error 'Frontend did not become available in time.';
+            exit 1
+        }
+    "
+'''
             }
         }
 
         stage('Run Robot Tests') {
             steps {
-                bat """
+                bat '''
                     call %VENV_PATH%\\Scripts\\activate
                     if not exist %ROBOT_REPORTS_DIR% mkdir %ROBOT_REPORTS_DIR%
                     if exist TestCase.robot python -m robot --outputdir %ROBOT_REPORTS_DIR% TestCase.robot
-                """
+                '''
             }
         }
 
@@ -130,10 +128,10 @@ FRONTEND_URL=http://localhost:5173
             echo "รายงานการทดสอบ Robot Framework อยู่ในโฟลเดอร์ ${ROBOT_REPORTS_DIR}"
         }
         failure {
-            echo "Pipeline ล้มเหลว! กรุณาตรวจสอบบันทึกเพื่อดูรายละเอียด"
+            echo 'Pipeline ล้มเหลว! กรุณาตรวจสอบบันทึกเพื่อดูรายละเอียด'
         }
         always {
             cleanWs()
         }
     }
-} 
+}
