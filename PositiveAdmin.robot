@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    DateTime
-Suite Setup    Setup Admin Account
+Suite Setup    Login Admin
 Suite Teardown    Close Browser
 
 *** Variables ***
@@ -10,9 +10,6 @@ ${BROWSER}    chrome
 ${URL}    http://localhost/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
-${ADMIN_EMAIL}    admin@uknowme.com
-${ADMIN_PASSWORD}    Admin1234
-${ADMIN_NAME}    Admin Tester
 
 *** Keywords ***
 Capture Step Screenshot
@@ -20,106 +17,49 @@ Capture Step Screenshot
     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
     Capture Page Screenshot    ${SCREENSHOT_DIR}/${step_name}_${timestamp}.png
 
-Setup Admin Account
-    # This keyword will register an admin account if it doesn't exist
-    # and then log in with that account
-    Register Admin
-    Login Admin
-
-Register Admin
-    Open Browser    ${URL}    ${BROWSER}
-    Set Selenium Speed    ${DELAY}
-    Maximize Browser Window
-    Capture Step Screenshot    admin_registration_start
-    Sleep    2s
-    
-    # Navigate to registration page if needed
-    Wait Until Element Is Visible    id=header-logo-link    timeout=15s
-    Click Element    id=header-logo-link
-    Sleep    1s
-    
-    # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=15s
-    Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
-    Sleep    1s
-    
-    # Click on Register/Signup if available
-    Wait Until Element Is Visible    id=signup-btn    timeout=10s
-    Click Element    id=signup-btn
-    Sleep    1s
-    
-    # Fill registration form
-    Wait Until Element Is Visible    id=name-input    timeout=10s
-    Input Text    id=name-input    ${ADMIN_NAME}
-    Input Text    id=email-input    ${ADMIN_EMAIL}
-    Input Password    id=password-input    ${ADMIN_PASSWORD}
-    Input Text    id=phone-input    0899999999
-    
-    # Submit registration
-    Wait Until Element Is Visible    id=submit-signup-btn    timeout=10s
-    Click Element    id=submit-signup-btn
-    
-    # Wait for confirmation and close it - handle both success and already exists messages
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=15s
-    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]    
-    
-    # Return to login page
-    Run Keyword And Ignore Error    Wait Until Element Is Visible    id=header-logo-link    timeout=10s
-    Run Keyword And Ignore Error    Click Element    id=header-logo-link
-    Run Keyword And Ignore Error    Close Browser
-
 Login Admin
     Open Browser    ${URL}    ${BROWSER}
     Set Selenium Speed    ${DELAY}
     Maximize Browser Window
     Capture Step Screenshot    admin_login_start
-    Sleep    2s
     
     # Select Admin Role
-    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]    timeout=15s
+    Wait Until Element Is Visible    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     Click Element    xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]
     Capture Step Screenshot    admin_role_selected
-    Sleep    1s
     
     # Input Login Credentials
-    Wait Until Element Is Visible    id=email-input    timeout=10s
-    Input Text    id=email-input    ${ADMIN_EMAIL}
-    Input Password    id=password-input    ${ADMIN_PASSWORD}
+    Wait Until Element Is Visible    id=email-input
+    Input Text    id=email-input    AtitayaAdmin@gmail.com
+    Input Password    id=password-input    1234
     Capture Step Screenshot    admin_credentials_entered
     
     # Click Login Button
-    Wait Until Element Is Visible    id=login-submit-btn    timeout=10s
     Click Element    id=login-submit-btn
     
     # Verify Login Success
-    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=15s
-    ${status}=    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ล็อกอินสำเร็จ
-    Run Keyword If    not ${status}    Fail    Admin login failed - please check credentials
-    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]    
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    เข้าสู่ระบบสำเร็จ!
     Capture Step Screenshot    admin_login_success
 
 DashboardAdmin
     Go To    http://localhost/AdminDashboard
-    Sleep    5s    # Increased sleep time to ensure dashboard loads fully
+    Sleep    3s
 
 Profile
-    Wait Until Element Is Visible    id=user-menu-btn    timeout=10s
+    Wait Until Element Is Visible    id=user-menu-btn
     Click Element    id=user-menu-btn
-    Sleep    1s
 
-    Wait Until Element Is Visible    id=profile-btn    timeout=10s
+    Wait Until Element Is Visible    id=profile-btn
     Click Element    id=profile-btn 
 
 *** Test Cases ***
 TCI002-ดูหน้าแดชบอร์ด
     DashboardAdmin
-    [Teardown]    Run Keyword And Ignore Error    Close Browser
     
 
 TCI003-ดูข้อมูลส่วนตัวบัญชีผู้ดูแล
-    DashboardAdmin
     Profile
-    [Teardown]    Run Keyword And Ignore Error    Close Browser
     
 
 TCI004-แก้ไขข้อมูลส่วนตัวของผู้ดูแลระบบ
@@ -198,11 +138,9 @@ TCI012-ดูหน้าจัดการคอร์ส
 
 TCI013-เพิ่มคอร์ส
 
-    Wait Until Element Is Visible    id=add-course-btn    timeout=10s
+    Wait Until Element Is Visible    id=add-course-btn
     Click Element    id=add-course-btn
-    Sleep    2s
 
-    Wait Until Element Is Visible    id=title-upload-popup    timeout=10s
     Input Text    id=title-upload-popup    Financi
     Input Text    id=description-upload-popup    Financia
     Input Text    id=details-upload-popup    test5
@@ -210,23 +148,15 @@ TCI013-เพิ่มคอร์ส
     Input Text    id=duration_hours-upload-popup    1
     Input Text    id=max_seats-upload-popup    20
     Input Text    id=start_date-upload-popup    10102025
-    
-    # Use Run Keyword And Ignore Error to handle potential file upload issues
-    Run Keyword And Ignore Error    Choose File    id=thumbnail-upload-popup    ${CURDIR}/image/download.jpg
-    Run Keyword And Ignore Error    Choose File    id=video-upload-popup        ${CURDIR}/image/12607801_1920_1080_30fps.mp4
-    Run Keyword And Ignore Error    Choose File    id=qr_code-upload-popup      ${CURDIR}/image/download.jpg
+    Choose File    id=thumbnail-upload-popup    ${CURDIR}/image/download.jpg
+    Choose File    id=video-upload-popup        ${CURDIR}/image/12607801_1920_1080_30fps.mp4
+    Choose File    id=qr_code-upload-popup      ${CURDIR}/image/download.jpg
 
-    Wait Until Element Is Visible    id=upload-btn-upload-popup    timeout=10s
+    Wait Until Element Is Visible    id=upload-btn-upload-popup
     Click Element    id=upload-btn-upload-popup
-    Sleep    3s
 
-    # Handle both success and failure scenarios
-    ${status}=    Run Keyword And Return Status    Wait Until Element Is Visible    id=cancel-btn-upload-popup    timeout=10s
-    Run Keyword If    ${status}    Click Element    id=cancel-btn-upload-popup
-    
-    # If popup appears, handle it
-    ${popup_status}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=5s
-    Run Keyword If    ${popup_status}    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
+    Wait Until Element Is Visible    id=cancel-btn-upload-popup
+    Click Element    id=cancel-btn-upload-popup
 
 TCI014-ดูตัวกรองการจัดการคอร์ส
 
@@ -255,27 +185,14 @@ TCI017-ดูคอร์สที่กำลังจะเริ่มต้�
 
 TCI018-ลบคอร์ส
 
-    Wait Until Element Is Visible    id=tab-latest    timeout=10s
+    Wait Until Element Is Visible    id=tab-latest
     Click Element    id=tab-latest
-    Sleep    2s
 
-    # Find any delete button since MongoDB IDs may change
-    ${delete_btn_exists}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//button[contains(@id, 'delete-btn-')]
-    
-    # If a specific delete button exists, use it, otherwise try to find any delete button
-    ${specific_btn_exists}=    Run Keyword And Return Status    Page Should Contain Element    id=delete-btn-6709c5e9c628150b54faeabd
-    
-    Run Keyword If    ${specific_btn_exists}    Click Element    id=delete-btn-6709c5e9c628150b54faeabd
-    Run Keyword If    not ${specific_btn_exists} and ${delete_btn_exists}    Click Element    xpath=(//button[contains(@id, 'delete-btn-')])[1]
-    
-    # Handle confirmation popup
-    ${popup_visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=5s
-    Run Keyword If    ${popup_visible}    Run Keyword And Return Status    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ยืนยันการลบคอร์ส
-    Run Keyword If    ${popup_visible}    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
-    
-    # Wait for any success message
-    ${success_popup}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]    timeout=5s
-    Run Keyword If    ${success_popup}    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
+    Wait Until Element Is Visible    id=delete-btn-6709c5e9c628150b54faeabd
+    Click Element    id=delete-btn-6709c5e9c628150b54faeabd
+    Wait Until Element Is Visible    xpath=//div[contains(@class, 'swal2-popup')]
+    Element Should Contain    xpath=//h2[contains(@class, 'swal2-title')]    ยืนยันการลบคอร์ส
+    Click Element    xpath=//button[contains(@class, 'swal2-confirm')]
     
 
 TCI019-ค้นหาคอร์ส
@@ -298,54 +215,30 @@ TCI021-ค้นหาหลักเพื่อดูตารางอบร�
     
 
 TCI022-ดูรายชื่อผู้สมัครของคอร์ส
-    Wait Until Element Is Visible    id=schedule-link    timeout=10s
+    Wait Until Element Is Visible    id=schedule-link
     Click Element    id=schedule-link
-    Sleep    2s
-    
-    # Find any view participants button since MongoDB IDs may change
-    ${participants_btn_exists}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//button[contains(@id, 'view-participants-')]
-    
-    # If a specific button exists, use it, otherwise try to find any view-participants button
-    ${specific_btn_exists}=    Run Keyword And Return Status    Page Should Contain Element    id=view-participants-6709ccb3c628150b54faeae4
-    
-    Run Keyword If    ${specific_btn_exists}    Click Element    id=view-participants-6709ccb3c628150b54faeae4
-    Run Keyword If    not ${specific_btn_exists} and ${participants_btn_exists}    Click Element    xpath=(//button[contains(@id, 'view-participants-')])[1]
+    Wait Until Element Is Visible    id=view-participants-6709ccb3c628150b54faeae4
+    Click Element    id=view-participants-6709ccb3c628150b54faeae4
 
     
 
 TCI023-เช็คชื่อตรวจสอบการเข้าอบรม
 
-    # Try to find any participant checkbox since MongoDB IDs may change
-    ${checkbox_exists}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*[contains(@id, 'check-participant-')]/i
+    Wait Until Element Is Visible    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
+    Click Element    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
     
-    # If a specific checkbox exists, use it, otherwise try to find any participant checkbox
-    ${specific_checkbox_exists}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
-    
-    Run Keyword If    ${specific_checkbox_exists}    Click Element    xpath=//*[@id="check-participant-670a2ecc45a3113da061f5c7"]/i
-    Run Keyword If    not ${specific_checkbox_exists} and ${checkbox_exists}    Click Element    xpath=(//*[contains(@id, 'check-participant-')]/i)[1]
-    Sleep    1s
-    
-    # Save participants attendance
-    ${save_btn_exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    id=save-participants    timeout=5s
-    Run Keyword If    ${save_btn_exists}    Click Element    id=save-participants
-    Sleep    2s
+    Wait Until Element Is Visible    id=save-participants
+    Click Element    id=save-participants
  
-    # Close the attendance dialog
-    ${close_btn_exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    id=close-check-name    timeout=5s
-    Run Keyword If    ${close_btn_exists}    Click Element    id=close-check-name
+    Wait Until Element Is Visible    id=close-check-name
+    Click Element    id=close-check-name
 
 TCI024-ออกจากระบบ
-    DashboardAdmin
-    Wait Until Element Is Visible    id=user-menu-btn    timeout=10s
-    Click Element    id=user-menu-btn
-    Sleep    1s
 
-    Wait Until Element Is Visible    id=logout-btn    timeout=10s
+    Wait Until Element Is Visible    id=user-menu-btn
+    Click Element    id=user-menu-btn
+
+    Wait Until Element Is Visible    id=logout-btn
     Click Element    id=logout-btn
-    Sleep    2s
+
     
-    # Verify logout success - should return to login page
-    ${login_page}=    Run Keyword And Return Status    Wait Until Element Is Visible    id=header-logo-link    timeout=10s
-    Run Keyword If    not ${login_page}    Log    Logout may not have worked correctly
-    
-    [Teardown]    Run Keyword And Ignore Error    Close Browser
