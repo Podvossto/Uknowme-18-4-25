@@ -5,7 +5,7 @@ Library    DateTime
 
 *** Variables ***
 ${BROWSER}    chrome
-${URL}    http://localhost:5001/
+${URL}    http://localhost:5173/
 ${DELAY}    0
 ${SCREENSHOT_DIR}    screenshots
 
