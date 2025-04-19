@@ -42,6 +42,12 @@ pipeline {
 
         
 
+        stage('Check Docker') {
+            steps {
+                bat 'docker info'
+            }
+        }
+
         stage('Docker Compose Deploy') {
             steps {
                 bat '''
@@ -56,7 +62,16 @@ pipeline {
 
         stage('Wait for Services') {
             steps {
-                bat 'powershell -Command "Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 30"'
+                bat '''
+                    timeout /t 10
+                    powershell -Command "Invoke-WebRequest -Uri http://localhost:5173 -UseBasicParsing -TimeoutSec 30"
+                '''
+            }
+        }
+
+        stage('Docker Compose Logs') {
+            steps {
+                bat 'docker-compose logs --tail=50'
             }
         }
 
