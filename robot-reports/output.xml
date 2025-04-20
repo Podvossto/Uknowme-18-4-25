@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-20T20:31:56.725683" rpa="false" schemaversion="5">
+<suite id="s1" name="NegativeBond" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\NegativeBond.robot">
+<kw name="LogIn" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:31:57.014096" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-20T20:31:57.013457" elapsed="2.292469"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.306930" elapsed="0.000000"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.306930" elapsed="0.094571"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-20T20:31:59.402506" level="INFO">${timestamp} = 20250420_203159</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.402506" elapsed="0.000992"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:31:59.618590" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_login_start_20250420_203159.png"&gt;&lt;img src="screenshots/user_login_start_20250420_203159.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.403498" elapsed="0.215092"/>
+</kw>
+<arg>user_login_start</arg>
+<status status="PASS" start="2025-04-20T20:31:59.401501" elapsed="0.217089"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.618590" elapsed="0.020157"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:31:59.638747" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]'.</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ค้าตราสารหนี้']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.638747" elapsed="0.087281"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-20T20:31:59.727029" level="INFO">${timestamp} = 20250420_203159</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.727029" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:31:59.958386" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/user_role_selected_20250420_203159.png"&gt;&lt;img src="screenshots/user_role_selected_20250420_203159.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.727029" elapsed="0.231357"/>
+</kw>
+<arg>user_role_selected</arg>
+<status status="PASS" start="2025-04-20T20:31:59.726028" elapsed="0.232358"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=email-input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.958386" elapsed="0.021221"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:31:59.980605" level="INFO">Typing text 'phattarapong@gmail.com' into text field 'id=email-input'.</msg>
+<arg>id=email-input</arg>
+<arg>phattarapong@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-20T20:31:59.980605" elapsed="0.144618"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:32:00.125223" level="INFO">Typing password into text field 'id=password-input'.</msg>
+<msg time="2025-04-20T20:32:00.155157" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2025-04-20T20:32:04.281824" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244426680&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:08.394748" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B2444264D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:12.510809" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244426050&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:16.626482" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=65177): Max retries exceeded with url: /session/987b83fb41f849dfda41c84d806c7869/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244425CC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<arg>id=password-input</arg>
+<arg>12345</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-20T20:32:00.125223" elapsed="16.502266">Execution terminated by signal</status>
+</kw>
+<kw name="Capture Step Screenshot">
+<arg>user_credentials_entered</arg>
+<status status="NOT RUN" start="2025-04-20T20:32:16.627489" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=login-submit-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:32:16.628489" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:32:16.628489" elapsed="0.000000"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
+<arg>เข้าสู่ระบบสำเร็จ!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:32:16.628489" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:32:16.628489" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<arg>user_login_success</arg>
+<status status="NOT RUN" start="2025-04-20T20:32:16.630004" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-20T20:31:57.010946" elapsed="19.619058">Execution terminated by signal</status>
+</kw>
+<test id="s1-t1" name="TCI001-การสมัครสมาชิก(ข้อมูลไม่ครบ)" line="120">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.630004" elapsed="0.003534">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t2" name="TCI002-การสมัครสมาชิก(ข้อมูลซ้ำ)" line="123">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.635554" elapsed="0.003000">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t3" name="TCI003-เข้าสู่ระบบของผูู้ค้าตราสารหนี้" line="126">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.640570" elapsed="0.001996">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t4" name="TCI004-แก้ไขข้อมูลโปรไฟล์" line="129">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.644722" elapsed="0.001997">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="TCI005-เปลี่ยนรหัสผ่าน" line="152">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.648721" elapsed="0.002014">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="TCI006-ลงทะเบียนคอร์ส(ที่นั่งเต็ม)" line="169">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-20T20:32:16.651736" elapsed="0.002003">Test execution stopped due to a fatal error.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-04-20T20:32:20.759867" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244C88280&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869</msg>
+<errors>
+<msg time="2025-04-20T20:32:04.281824" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244426680&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:08.394748" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B2444264D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:12.510809" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244426050&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869/screenshot</msg>
+<msg time="2025-04-20T20:32:16.626482" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=65177): Max retries exceeded with url: /session/987b83fb41f849dfda41c84d806c7869/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244425CC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<msg time="2025-04-20T20:32:20.759867" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001B244C88280&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/987b83fb41f849dfda41c84d806c7869</msg>
+<msg time="2025-04-20T20:32:26.887263" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>

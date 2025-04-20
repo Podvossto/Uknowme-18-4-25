@@ -1,185 +1,361 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-19T20:17:15.802377" rpa="false" schemaversion="5">
-<suite id="s1" name="PositiveBond" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\PositiveBond.robot">
-<kw name="Setup Suite" type="SETUP">
-<kw name="Create Directory" owner="OperatingSystem">
-<msg time="2025-04-19T20:17:16.047682" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\screenshots"&gt;C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\screenshots&lt;/a&gt;' already exists.</msg>
-<arg>${SCREENSHOT_DIR}</arg>
-<doc>Creates the specified directory.</doc>
-<status status="PASS" start="2025-04-19T20:17:16.047682" elapsed="0.000000"/>
-</kw>
-<kw name="Signup">
+<robot generator="Robot 7.2.2 (Python 3.10.4 on win32)" generated="2025-04-20T20:15:39.450989" rpa="false" schemaversion="5">
+<suite id="s1" name="NegativeSuperAdmin" source="C:\Users\pitch\OneDrive\Desktop\ปี 3 เทอม 2\Uknowme\Uknowme-Lastest\Uknowme2025_\NegativeSuperAdmin.robot">
+<test id="s1-t1" name="TCI01-เข้าสู่ระบบผู้ดูแลระบบขั้นสูงกรณีไม่กรอก Privatekay" line="66">
+<kw name="SignIn-Privatekey">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:16.048677" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
+<msg time="2025-04-20T20:15:39.780146" level="INFO">Opening browser 'chrome' to base url 'http://localhost/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-19T20:17:16.047682" elapsed="2.828183"/>
+<status status="PASS" start="2025-04-20T20:15:39.780146" elapsed="3.003902"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>${DELAY}</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-04-19T20:17:18.875865" elapsed="0.001010"/>
+<status status="PASS" start="2025-04-20T20:15:42.785283" elapsed="0.000000"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-19T20:17:18.876875" elapsed="0.088794"/>
+<status status="PASS" start="2025-04-20T20:15:42.785283" elapsed="0.111319"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-20T20:15:42.897602" level="INFO">${timestamp} = 20250420_201542</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-20T20:15:42.897602" elapsed="0.000999"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:15:43.112126" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_login_start_20250420_201542.png"&gt;&lt;img src="screenshots/admin_login_start_20250420_201542.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-20T20:15:42.898601" elapsed="0.213525"/>
+</kw>
+<arg>admin_login_start</arg>
+<status status="PASS" start="2025-04-20T20:15:42.897602" elapsed="0.214524"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=role-btn-trader</arg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T20:17:18.966671" elapsed="0.022341"/>
+<status status="PASS" start="2025-04-20T20:15:43.113127" elapsed="0.023940"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:18.990025" level="INFO">Clicking element 'id=role-btn-trader'.</msg>
-<arg>id=role-btn-trader</arg>
+<msg time="2025-04-20T20:15:43.137067" level="INFO">Clicking element 'xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]'.</msg>
+<arg>xpath=//button[contains(@class, 'role-button') and .//span[text()='ผู้ดูแลระบบ']]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:18.989012" elapsed="0.120075"/>
+<status status="PASS" start="2025-04-20T20:15:43.137067" elapsed="0.110189"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-20T20:15:43.248256" level="INFO">${timestamp} = 20250420_201543</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.248256" elapsed="0.001002"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:15:43.415732" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_role_selected_20250420_201543.png"&gt;&lt;img src="screenshots/admin_role_selected_20250420_201543.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.249258" elapsed="0.166474"/>
+</kw>
+<arg>admin_role_selected</arg>
+<status status="PASS" start="2025-04-20T20:15:43.248256" elapsed="0.167476"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=signup-btn</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.109087" elapsed="0.024233"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.133320" level="INFO">Clicking element 'id=signup-btn'.</msg>
-<arg>id=signup-btn</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.133320" elapsed="0.089941"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.224260" level="INFO">Typing text 'Phattarapong Uknowme' into text field 'id=name-input'.</msg>
-<arg>id=name-input</arg>
-<arg>${USER_NAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.224260" elapsed="0.157912"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.383172" level="INFO">Typing text 'Uknowme Asset' into text field 'id=company-input'.</msg>
-<arg>id=company-input</arg>
-<arg>${USER_COMPANY}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.383172" elapsed="0.095395"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.480077" level="INFO">Typing text '1429900959467' into text field 'id=citizen-id-input'.</msg>
-<arg>id=citizen-id-input</arg>
-<arg>${USER_CITIZEN_ID}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.478567" elapsed="0.116036"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.594603" level="INFO">Typing text 'phattarapong34467@gmail.com' into text field 'id=email-input'.</msg>
 <arg>id=email-input</arg>
-<arg>${USER_EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.594603" elapsed="0.144957"/>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.416740" elapsed="0.037569"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.739560" level="INFO">Typing text '0966566467' into text field 'id=phone-input'.</msg>
-<arg>id=phone-input</arg>
-<arg>${USER_PHONE}</arg>
+<msg time="2025-04-20T20:15:43.455475" level="INFO">Typing text 'AtitayaAdmin@gmail.com' into text field 'id=email-input'.</msg>
+<arg>id=email-input</arg>
+<arg>AtitayaAdmin@gmail.com</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.739560" elapsed="0.113287"/>
+<status status="PASS" start="2025-04-20T20:15:43.454309" elapsed="0.145615"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>id=submit-signup-btn</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.852847" elapsed="0.015191"/>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:15:43.600934" level="INFO">Typing password into text field 'id=password-input'.</msg>
+<msg time="2025-04-20T20:15:43.634225" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password-input</arg>
+<arg>1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.600934" elapsed="0.085271"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-20T20:15:43.687216" level="INFO">${timestamp} = 20250420_201543</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.687216" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:15:43.783244" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/admin_credentials_entered_20250420_201543.png"&gt;&lt;img src="screenshots/admin_credentials_entered_20250420_201543.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/${step_name}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-04-20T20:15:43.687216" elapsed="0.096028"/>
+</kw>
+<arg>admin_credentials_entered</arg>
+<status status="PASS" start="2025-04-20T20:15:43.686205" elapsed="0.097039"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:19.868038" level="INFO">Clicking element 'id=submit-signup-btn'.</msg>
-<arg>id=submit-signup-btn</arg>
+<msg time="2025-04-20T20:15:43.784247" level="INFO">Clicking element 'id=login-submit-btn'.</msg>
+<arg>id=login-submit-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.868038" elapsed="0.072593"/>
+<status status="PASS" start="2025-04-20T20:15:43.783244" elapsed="0.158272"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-20T20:15:46.841401" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C3378FDC]
+	(No symbol) [0x00007FF6C33BF51F]
+	(No symbol) [0x00007FF6C33F6FB2]
+	(No symbol) [0x00007FF6C33F19CC]
+	(No symbol) [0x00007FF6C33F0AA9]
+	(No symbol) [0x00007FF6C3345AB5]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	(No symbol) [0x00007FF6C3344B28]
+	GetHandleVerifier [0x00007FF6C3970688+3925560]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
+<msg time="2025-04-20T20:15:46.842412" level="FAIL">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C33791AA]
+	(No symbol) [0x00007FF6C3364EF5]
+	(No symbol) [0x00007FF6C3389F04]
+	(No symbol) [0x00007FF6C33FED0F]
+	(No symbol) [0x00007FF6C341EBB2]
+	(No symbol) [0x00007FF6C33F6EC3]
+	(No symbol) [0x00007FF6C33C03F8]
+	(No symbol) [0x00007FF6C33C1163]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	GetHandleVerifier [0x00007FF6C35CD2D4+111236]
+	GetHandleVerifier [0x00007FF6C35CD482+111666]
+	GetHandleVerifier [0x00007FF6C35B35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
 <arg>xpath=//div[contains(@class, 'swal2-popup')]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-19T20:17:19.941143" elapsed="0.063403"/>
+<status status="FAIL" start="2025-04-20T20:15:43.942511" elapsed="2.982246">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C33791AA]
+	(No symbol) [0x00007FF6C3364EF5]
+	(No symbol) [0x00007FF6C3389F04]
+	(No symbol) [0x00007FF6C33FED0F]
+	(No symbol) [0x00007FF6C341EBB2]
+	(No symbol) [0x00007FF6C33F6EC3]
+	(No symbol) [0x00007FF6C33C03F8]
+	(No symbol) [0x00007FF6C33C1163]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	GetHandleVerifier [0x00007FF6C35CD2D4+111236]
+	GetHandleVerifier [0x00007FF6C35CD482+111666]
+	GetHandleVerifier [0x00007FF6C35B35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-19T20:17:20.116954" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-19T20:17:20.116954" level="FAIL">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</msg>
 <arg>xpath=//h2[contains(@class, 'swal2-title')]</arg>
-<arg>สมัครสมาชิกสำเร็จ!</arg>
+<arg>เข้าสู่ระบบสำเร็จ!</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="FAIL" start="2025-04-19T20:17:20.004546" elapsed="0.113072">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
+<status status="NOT RUN" start="2025-04-20T20:15:46.924757" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Step Screenshot">
+<arg>admin_login_success</arg>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>http://localhost/AdminDashboard</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=user-menu-btn</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=//button[contains(@class, 'swal2-confirm')]</arg>
+<arg>id=user-menu-btn</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-19T20:17:20.117618" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T20:17:20.117618" elapsed="2.144526"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=logout-btn</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-04-19T20:17:16.047682" elapsed="6.214462">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=logout-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-04-19T20:17:16.046538" elapsed="6.216405">Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=header-logo-link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.925766" elapsed="0.000000"/>
 </kw>
-<test id="s1-t1" name="TCI001-การสมัครสมาชิก" line="89">
-<status status="FAIL" start="2025-04-19T20:17:22.262943" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t2" name="TCI003-โปรไฟล์" line="93">
-<status status="FAIL" start="2025-04-19T20:17:22.263947" elapsed="0.001003">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t3" name="TCI004-แก้ไขข้อมูลโปรไฟล์" line="99">
-<status status="FAIL" start="2025-04-19T20:17:22.266949" elapsed="0.002221">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t4" name="TCI005-เปลี่ยนรหัสผ่าน" line="116">
-<status status="FAIL" start="2025-04-19T20:17:22.271149" elapsed="0.002013">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t5" name="TCI006-หลักสูตรของฉัน" line="134">
-<status status="FAIL" start="2025-04-19T20:17:22.274157" elapsed="0.001506">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t6" name="TCI007-ลงทะเบียนคอร์ส" line="146">
-<status status="FAIL" start="2025-04-19T20:17:22.278443" elapsed="0.002029">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t7" name="TCI-008-เริ่มเรียน" line="158">
-<status status="FAIL" start="2025-04-19T20:17:22.283000" elapsed="0.001513">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t8" name="TCI_009-ยกเลิกการลงทะเบียน" line="166">
-<status status="FAIL" start="2025-04-19T20:17:22.286528" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t9" name="TCI010-ตารางอบรม" line="180">
-<status status="FAIL" start="2025-04-19T20:17:22.289563" elapsed="0.000000">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t10" name="TCI011-ดาว์นโหลดใบรับรอง" line="184">
-<status status="FAIL" start="2025-04-19T20:17:22.291071" elapsed="0.001007">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<test id="s1-t11" name="TCI012-ออกจากระบบ" line="200">
-<status status="FAIL" start="2025-04-19T20:17:22.293955" elapsed="0.001013">Parent suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
-</test>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-19T20:17:22.298601" elapsed="0.000000"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=header-logo-link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-04-19T20:17:15.804887" elapsed="6.493714">Suite setup failed:
-Element 'xpath=//h2[contains(@class, 'swal2-title')]' should have contained text 'สมัครสมาชิกสำเร็จ!' but its text was 'ไม่สามารถลงทะเบียนได้'.</status>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=submit-private-key-btn</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=submit-private-key-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>private-key-input</arg>
+<arg>1111111111111111111111111</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=submit-private-key-btn</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.926769" elapsed="0.001010"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=submit-private-key-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.927779" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=verify-otp-btn</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.927779" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=verify-otp-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-20T20:15:46.927779" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-20T20:15:39.778146" elapsed="7.149633">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C33791AA]
+	(No symbol) [0x00007FF6C3364EF5]
+	(No symbol) [0x00007FF6C3389F04]
+	(No symbol) [0x00007FF6C33FED0F]
+	(No symbol) [0x00007FF6C341EBB2]
+	(No symbol) [0x00007FF6C33F6EC3]
+	(No symbol) [0x00007FF6C33C03F8]
+	(No symbol) [0x00007FF6C33C1163]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	GetHandleVerifier [0x00007FF6C35CD2D4+111236]
+	GetHandleVerifier [0x00007FF6C35CD482+111666]
+	GetHandleVerifier [0x00007FF6C35B35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</kw>
+<status status="FAIL" start="2025-04-20T20:15:39.777148" elapsed="7.151630">InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C33791AA]
+	(No symbol) [0x00007FF6C3364EF5]
+	(No symbol) [0x00007FF6C3389F04]
+	(No symbol) [0x00007FF6C33FED0F]
+	(No symbol) [0x00007FF6C341EBB2]
+	(No symbol) [0x00007FF6C33F6EC3]
+	(No symbol) [0x00007FF6C33C03F8]
+	(No symbol) [0x00007FF6C33C1163]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	GetHandleVerifier [0x00007FF6C35CD2D4+111236]
+	GetHandleVerifier [0x00007FF6C35CD482+111666]
+	GetHandleVerifier [0x00007FF6C35B35A9+5465]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</status>
+</test>
+<status status="FAIL" start="2025-04-20T20:15:39.453006" elapsed="7.478290"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="11" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="PositiveBond" id="s1" pass="0" fail="11" skip="0">PositiveBond</stat>
+<stat name="NegativeSuperAdmin" id="s1" pass="0" fail="1" skip="0">NegativeSuperAdmin</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-04-20T20:15:46.841401" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF6C35C5355+78597]
+	GetHandleVerifier [0x00007FF6C35C53B0+78688]
+	(No symbol) [0x00007FF6C3378FDC]
+	(No symbol) [0x00007FF6C33BF51F]
+	(No symbol) [0x00007FF6C33F6FB2]
+	(No symbol) [0x00007FF6C33F19CC]
+	(No symbol) [0x00007FF6C33F0AA9]
+	(No symbol) [0x00007FF6C3345AB5]
+	GetHandleVerifier [0x00007FF6C386EF0D+2870973]
+	GetHandleVerifier [0x00007FF6C38696B8+2848360]
+	GetHandleVerifier [0x00007FF6C3886993+2967875]
+	GetHandleVerifier [0x00007FF6C35E019A+188746]
+	GetHandleVerifier [0x00007FF6C35E847F+222255]
+	(No symbol) [0x00007FF6C3344B28]
+	GetHandleVerifier [0x00007FF6C3970688+3925560]
+	BaseThreadInitThunk [0x00007FFB02DFE8D7+23]
+	RtlUserThreadStart [0x00007FFB043114FC+44]
+</msg>
 </errors>
 </robot>

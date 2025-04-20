@@ -8,6 +8,8 @@ pipeline {
         APP_PORT = '5173'
         ROBOT_REPORTS_DIR = 'robot-reports'
         VENV_PATH = 'robot-venv'
+        DOCKER_CLIENT_IMAGE = 'uknowme-client:1.0'
+        DOCKER_SERVER_IMAGE = 'uknowme-server:1.0'
     }
 
     stages {
@@ -46,9 +48,12 @@ pipeline {
             }
         }
 
-        stage('Clean Up Containers') {
+        stage('Clean Up Containers and Images') {
             steps {
-                bat 'docker-compose down'
+                bat '''
+                    docker-compose down
+                    docker image prune -f
+                '''
             }
         }
 
@@ -77,6 +82,18 @@ FRONTEND_URL=http://localhost:5173
         stage('Deploy Containers') {
             steps {
                 bat 'docker-compose up -d'
+                bat 'docker ps -a'
+            }
+        }
+
+        stage('Clean Database') {
+            steps {
+                bat '''
+                    echo "Waiting for MongoDB to start..."
+                    timeout /t 15
+                    echo "Cleaning database for tests..."
+                    docker exec -i mongodb mongosh --eval "db = db.getSiblingDB('Uknowmedatabase'); db.users.deleteMany({email: {$nin: ['AtitayaAdmin@gmail.com']}}); db.traders.deleteMany({}); print('Database cleaned successfully');"
+                '''
             }
         }
 
@@ -84,12 +101,12 @@ FRONTEND_URL=http://localhost:5173
             steps {
                 bat '''
                     robot -d %ROBOT_REPORTS_DIR% \
-                        PositiveSuperAdmin.robot \
                         PositiveBond.robot \
-                        PositiveAdmin.robot \
-                        NegativeSuperAdmin.robot \
                         NegativeBond.robot \
-                        NegativeAdmin.robot
+                        PositiveAdmin.robot \
+                        NegativeAdmin.robot \
+                        PositiveSuperAdmin.robot \
+                        NegativeSuperAdmin.robot
                 '''
             }
         }

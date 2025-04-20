@@ -4,10 +4,10 @@ services:
     build:
       context: ./clients
       dockerfile: dockerfile
-    image: uknowme-client:latest
+    image: uknowme-client:1.0
+    container_name: uknowme-client
     ports:
-      - "80:80"
-      - "5000:5000"
+      - "5173:80"  # Map port 5173 to container's port 80
     depends_on:
       - server
     restart: unless-stopped
@@ -19,13 +19,14 @@ services:
     build:
       context: ./Server
       dockerfile: dockerfile
-    image: uknowme-server:latest
+    image: uknowme-server:1.0
+    container_name: uknowme-server
     ports:
       - "3000:3000"
     environment:
       - PORT=3000
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://127.0.0.1:27017/Uknowmedatabase
+      - MONGODB_URI=mongodb://host.docker.internal:27017/Uknowmedatabase
     volumes:
       - ./Server/src/uploads:/app/src/uploads
     restart: unless-stopped
@@ -35,6 +36,7 @@ services:
 # Comment out MongoDB service since we're using local MongoDB
 #  mongodb:
 #    image: mongo:latest
+#    container_name: mongodb
 #    ports:
 #      - "27017:27017"
 #    volumes:
