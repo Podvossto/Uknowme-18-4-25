@@ -25,32 +25,24 @@ services:
     environment:
       - PORT=3000
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://mongodb:27017/Uknowmedatabase
+      - MONGODB_URI=mongodb://127.0.0.1:27017/Uknowmedatabase
     volumes:
       - ./Server/src/uploads:/app/src/uploads
     restart: unless-stopped
-    depends_on:
-      - mongodb
     networks:
       - uknowme-network
 
-  # MongoDB service
-
-  mongodb:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/Uknowmedatabase:/data/db"
-      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/mongo-init:/docker-entrypoint-initdb.d"
-    restart: unless-stopped
-    networks:
-      - uknowme-network
-
-    # If you need authentication, uncomment and modify these lines
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=admin
-    #   - MONGO_INITDB_ROOT_PASSWORD=password
+# Comment out MongoDB service since we're using local MongoDB
+#  mongodb:
+#    image: mongo:latest
+#    ports:
+#      - "27017:27017"
+#    volumes:
+#      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/Uknowmedatabase:/data/db"
+#      - "C:/Users/pitch/OneDrive/Desktop/ปี 3 เทอม 2/Uknowme/Uknowme-Lastest/Uknowme2025_/mongo-init:/docker-entrypoint-initdb.d"
+#    restart: unless-stopped
+#    networks:
+#      - uknowme-network
 
 volumes:
   mongodb_data:
